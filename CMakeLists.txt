@@ -182,3 +182,11 @@ else()
     )
 
 endif()
+
+
+# Тесты
+add_subdirectory(libs/googletest)
+enable_testing()
+
+set(TESTS_NAME "${PROJECT_NAME}_tests")
+add_subdirectory(Tests)
