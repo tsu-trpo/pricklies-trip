@@ -26,7 +26,7 @@ cmake_policy(SET CMP0017 NEW)
 
 cmake_minimum_required(VERSION 3.1)
 
-set(APP_NAME Priclies_trip)
+set(APP_NAME Pricklies_trip)
 set(LIB_NAME ${APP_NAME}_lib)
 
 project (${APP_NAME})
@@ -148,7 +148,7 @@ set(BUILD_JS_LIBS OFF CACHE BOOL "turn off build js related targets")
 add_subdirectory(${COCOS2D_ROOT})
 
 
-# Priclies_trip
+# Pricklies_trip
 if( ANDROID )
     add_library(${APP_NAME} SHARED ${GAME_SRC} ${GAME_HEADERS})
     IF(CMAKE_BUILD_TYPE MATCHES RELEASE)
