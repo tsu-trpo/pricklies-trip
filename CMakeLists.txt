@@ -130,12 +130,14 @@ endif( WIN32 )
 set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
+  Classes/GameScene.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
 set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
+  Classes/GameScene.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
