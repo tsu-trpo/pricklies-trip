@@ -7,12 +7,12 @@ class GameScene : public cocos2d::Scene
 public:
     static cocos2d::Scene* createScene();
 
-    virtual bool init();
+    virtual bool init() override;
 
-    void displayScore(unsigned int);
-    // implement the "static create()" method manually
+    void displayScore(unsigned int score);
+    
     CREATE_FUNC(GameScene);
 private:
-  unsigned int score;
-  cocos2d::Label *scoreLabel;
+    unsigned int score = 0;
+    cocos2d::Label *scoreLabel = nullptr;
 };

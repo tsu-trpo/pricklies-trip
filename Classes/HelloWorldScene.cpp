@@ -1,6 +1,6 @@
 #include "HelloWorldScene.h"
 #include "GameScene.h"
-#include "SimpleAudioEngine.h"
+#define transitionTime 0.5
 
 USING_NS_CC;
 
@@ -27,7 +27,7 @@ bool HelloWorld::init()
 
     Vector<MenuItem*> MenuItems;
     auto startItem = MenuItemImage::create("CloseNormal.png", "CloseNormal3.png",
-                                           CC_CALLBACK_1(HelloWorld::GoToGameScene, this));
+                                           CC_CALLBACK_1(HelloWorld::goToGameScene, this));
     startItem->setPosition(Vec2(origin.x + visibleSize.width/2,
                                 origin.y + startItem->getContentSize().height/2 + 160));
     MenuItems.pushBack(startItem);
@@ -72,8 +72,9 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 }
 
 
-void HelloWorld::GoToGameScene( cocos2d::Ref *sender )
+void HelloWorld::goToGameScene(Ref *sender)
 {
     auto scene = GameScene::createScene();
-    Director::getInstance()->replaceScene(TransitionFade::create(0.5, scene));
+    Director::getInstance()->replaceScene(TransitionFade::create(transitionTime, scene));
 }
+

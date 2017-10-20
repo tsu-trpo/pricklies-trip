@@ -15,7 +15,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 private:
-    void GoToGameScene( cocos2d::Ref *sender );
+    void goToGameScene(cocos2d::Ref *sender);
 
 
 };
