@@ -138,6 +138,7 @@ set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
   Classes/GameScene.h
+  Classes/ScreenConsts.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
