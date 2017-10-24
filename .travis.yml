@@ -1,0 +1,19 @@
+sudo: requared
+dist: trusty
+
+language: 
+    - cpp
+
+compiler: 
+    - gcc
+
+
+before_install:
+    - ./install-cocos2d-x.sh
+
+before_script:
+    - git submodule update --recursive --init 
+
+script:
+    - cocos compile -p linux -s . 
+
