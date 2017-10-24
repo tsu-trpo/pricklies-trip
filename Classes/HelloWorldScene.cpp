@@ -1,6 +1,5 @@
 #include "HelloWorldScene.h"
 #include "GameScene.h"
-#define transitionTime 0.5
 
 USING_NS_CC;
 
@@ -74,6 +73,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 
 void HelloWorld::goToGameScene(Ref *sender)
 {
+    const float transitionTime = 0.5;
     auto scene = GameScene::createScene();
     Director::getInstance()->replaceScene(TransitionFade::create(transitionTime, scene));
 }

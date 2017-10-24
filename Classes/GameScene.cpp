@@ -1,3 +1,4 @@
+#include <string>
 #include "GameScene.h"
 #include "ScreenConsts.h"
 
@@ -11,34 +12,32 @@ Scene* GameScene::createScene()
 
 void GameScene::displayScore(unsigned int score)
 {
-    __String *tempScore = __String::createWithFormat( "%i", score );
-
     auto scoreTextLabel = Label::createWithTTF("Score: ", "fonts/8458.ttf", 30);
     scoreTextLabel->setColor(Color3B::WHITE);
    
     Size contentSize = scoreTextLabel->getContentSize();
-    Vec2 indent(contentSize.width / 1.8, -contentSize.height / 2.0);
+    Vec2 offset(contentSize.width / 1.8, -contentSize.height / 2.0);
    
-    scoreTextLabel->setPosition(getLeftUpCorner() + indent);
+    scoreTextLabel->setPosition(getLeftUpCorner() + offset);
     this->addChild(scoreTextLabel, -1);
 
-    scoreLabel = Label::createWithTTF(tempScore->getCString(), "fonts/8458.ttf", 30);
+    scoreLabel = Label::createWithTTF(std::to_string(score), "fonts/8458.ttf", 30);
     scoreLabel->setColor(Color3B::WHITE);
     
     Size scoreSize = scoreLabel->getContentSize();
-    Vec2 indentScore(scoreSize.width / 2.0 + contentSize.width , -scoreSize.height / 2.0);
+    Vec2 offsetScore(scoreSize.width / 2.0 + contentSize.width , -scoreSize.height / 2.0);
 
-    scoreLabel->setPosition(getLeftUpCorner() + indentScore); 
+    scoreLabel->setPosition(getLeftUpCorner() + offsetScore); 
     this->addChild(scoreLabel, -1);
 }
 
 
 bool GameScene::init()
 {
-    if (!Scene::init())
-    {
+    if (!Scene::init()) {
         return false;
     }
+
     score=0;
     displayScore(score);
 
