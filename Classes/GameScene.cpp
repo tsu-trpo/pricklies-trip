@@ -38,7 +38,7 @@ bool GameScene::init()
         return false;
     }
 
-    score=0;
+    score = 0;
     displayScore(score);
 
     return true;
