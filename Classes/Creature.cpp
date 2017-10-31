@@ -6,29 +6,29 @@ Creature::Creature()
     const int number = random(0, numberOfPictures);
     std::string image = "Creatures/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
-    this->addChild(sprite);
+    addChild(sprite);
 }
 
 Size Creature::getSize()
 {
-    Size creatureSize = this->sprite->getContentSize();
+    Size creatureSize = sprite->getContentSize();
     return creatureSize;
 }
 
 void Creature::update(float delta)
 {
-    Point currentPosition = this->getPosition();
+    Point currentPosition = getPosition();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Size creatureSize = this->getSize();
+    Size creatureSize = getSize();
     
     if (currentPosition.x > origin.x - creatureSize.width) {
         const int offset = -delta * velocity;
-       
+        
         auto move = MoveBy::create(delta, Vec2(offset, 0));
-        this->runAction(move); 
+        runAction(move); 
     }
     else {
-        this->runAction(RemoveSelf::create());
+        runAction(RemoveSelf::create());
     }
 
     return;

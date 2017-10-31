@@ -51,7 +51,7 @@ bool GameScene::init()
     displayScore(score);
     
     Respawner *respawner = new Respawner(this);
-    this->addChild(respawner);
-    this->scheduleUpdate();
+    addChild(respawner);
+    scheduleUpdate();
     return true;
 }
