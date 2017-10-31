@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Respawner.h"
 #include "cocos2d.h"
 
 class GameScene : public cocos2d::Scene
@@ -11,6 +12,7 @@ public:
 
     void displayScore(unsigned int score);
     
+    void update(float delta);
     CREATE_FUNC(GameScene);
 private:
     unsigned int score = 0;

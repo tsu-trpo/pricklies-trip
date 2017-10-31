@@ -9,7 +9,6 @@ Scene* GameScene::createScene()
     return GameScene::create();
 }
 
-
 void GameScene::displayScore(unsigned int score)
 {
     auto scoreTextLabel = Label::createWithTTF("Score: ", "fonts/8458.ttf", 30);
@@ -31,15 +30,28 @@ void GameScene::displayScore(unsigned int score)
     this->addChild(scoreLabel, -1);
 }
 
+void GameScene::update(float delta)
+{
+    auto children = this->getChildren();
+    
+    for (auto &child: children) {
+        child->update(delta);
+    }
+
+    return;
+}
 
 bool GameScene::init()
 {
     if (!Scene::init()) {
         return false;
     }
-
+    
     score = 0;
     displayScore(score);
-
+    
+    Respawner *respawner = new Respawner(this);
+    this->addChild(respawner);
+    this->scheduleUpdate();
     return true;
 }
