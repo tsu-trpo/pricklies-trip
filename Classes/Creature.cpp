@@ -2,12 +2,13 @@
 
 Creature::Creature()
 {
+    scheduleUpdate();
+    
     const int numberOfPictures = 5;
     const int number = random(0, numberOfPictures);
     std::string image = "Creatures/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
     addChild(sprite);
-    scheduleUpdate();
 }
 
 Size Creature::getSize()
