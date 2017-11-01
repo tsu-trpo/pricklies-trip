@@ -7,11 +7,11 @@ USING_NS_CC;
 class Respawner: public Node {
 public:
     Respawner();
-    Respawner(Scene * gameScene);
+    Respawner(Scene &gameScene);
     void update(float delta);
 
 private:
     const int timeToMove = 2;
     float currentTime;
-    Scene * scene;
+    Scene &scene;
 };

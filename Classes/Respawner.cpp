@@ -1,8 +1,6 @@
 #include "Respawner.h"
 
-Respawner::Respawner():currentTime{0}, scene{nullptr} {}
-
-Respawner::Respawner(Scene * gameScene):currentTime{0}, scene{gameScene} {}
+Respawner::Respawner(Scene &gameScene):currentTime{0}, scene{gameScene} {}
 
 void Respawner::update(float delta)
 {
@@ -22,7 +20,7 @@ void Respawner::update(float delta)
                        origin.y + visibleSize.height * relativeHeight);
 
         creature->setPosition(position);
-        scene->addChild(creature);
+        scene.addChild(creature);
     }
     
     return;
