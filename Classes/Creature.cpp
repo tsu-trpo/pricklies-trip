@@ -27,8 +27,7 @@ void Creature::update(float delta)
         const int offset = -delta * velocity;
         
         setPositionX(currentPosition.x + offset);
-    }
-    else {
+    } else {
         runAction(RemoveSelf::create());
     }
 

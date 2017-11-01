@@ -1,4 +1,5 @@
 #pragma once
+
 #include "cocos2d.h"
 #include "Creature.h"
 
@@ -14,3 +15,4 @@ private:
     float currentTime = 0;
     Node &node;
 };
+
