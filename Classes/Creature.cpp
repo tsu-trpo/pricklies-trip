@@ -21,7 +21,8 @@ void Creature::update(float delta)
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size creatureSize = getSize();
     
-    if (currentPosition.x > origin.x - creatureSize.width) {
+    bool isOutOfScreen = currentPosition.x < origin.x - creatureSize.width;
+    if (!isOutOfScreen) {
         const int offset = -delta * velocity;
         
         auto move = MoveBy::create(delta, Vec2(offset, 0));
