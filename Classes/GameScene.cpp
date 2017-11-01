@@ -30,17 +30,6 @@ void GameScene::displayScore(unsigned int score)
     this->addChild(scoreLabel, -1);
 }
 
-void GameScene::update(float delta)
-{
-    auto children = this->getChildren();
-    
-    for (auto &child: children) {
-        child->update(delta);
-    }
-
-    return;
-}
-
 bool GameScene::init()
 {
     if (!Scene::init()) {
@@ -52,6 +41,6 @@ bool GameScene::init()
     
     Respawner *respawner = new Respawner(this);
     addChild(respawner);
-    scheduleUpdate();
+    respawner->scheduleUpdate();
     return true;
 }

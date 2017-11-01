@@ -12,7 +12,6 @@ public:
 
     void displayScore(unsigned int score);
     
-    void update(float delta);
     CREATE_FUNC(GameScene);
 private:
     unsigned int score = 0;

@@ -7,6 +7,7 @@ Creature::Creature()
     std::string image = "Creatures/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
     addChild(sprite);
+    scheduleUpdate();
 }
 
 Size Creature::getSize()
