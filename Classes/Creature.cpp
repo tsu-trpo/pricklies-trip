@@ -25,8 +25,7 @@ void Creature::update(float delta)
     if (!isOutOfScreen) {
         const int offset = -delta * velocity;
         
-        auto move = MoveBy::create(delta, Vec2(offset, 0));
-        runAction(move); 
+        setPositionX(currentPosition.x + offset);
     }
     else {
         runAction(RemoveSelf::create());
