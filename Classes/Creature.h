@@ -8,7 +8,6 @@ public:
     Creature();
     void update(float delta);
     Size getSize();
-    CREATE_FUNC(Creature);
 
 private:
     const int velocity = 300;
