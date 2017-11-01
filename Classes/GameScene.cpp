@@ -41,7 +41,6 @@ bool GameScene::init()
     
     Respawner *respawner = new Respawner(*this);
     addChild(respawner);
-    respawner->scheduleUpdate();
     
     return true;
 }

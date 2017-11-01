@@ -1,6 +1,9 @@
 #include "Respawner.h"
 
-Respawner::Respawner(Node &gameNode):currentTime{0}, node{gameNode} {}
+Respawner::Respawner(Node &gameNode):currentTime{0}, node{gameNode} 
+{
+    scheduleUpdate();
+}
 
 void Respawner::update(float delta)
 {
