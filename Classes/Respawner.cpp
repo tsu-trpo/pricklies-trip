@@ -1,6 +1,6 @@
 #include "Respawner.h"
 
-Respawner::Respawner(Node &gameNode):currentTime{0}, node{gameNode} 
+Respawner::Respawner(Node &creatureParent): currentTime{0}, spawnPoint{creatureParent} 
 {
     scheduleUpdate();
 }
@@ -23,7 +23,7 @@ void Respawner::update(float delta)
                        origin.y + visibleSize.height * relativeHeight);
 
         creature->setPosition(position);
-        node.addChild(creature);
+        spawnPoint.addChild(creature);
     }
     
     return;
