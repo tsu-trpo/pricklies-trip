@@ -11,6 +11,6 @@ public:
 
 private:
     const int timeToMove = 2;
-    float currentTime;
+    float currentTime = 0;
     Node &node;
 };
