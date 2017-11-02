@@ -1,13 +1,12 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "Creature.h"
 
 USING_NS_CC;
 
-class Respawner: public Node {
+class CreatureRespawner: public Node {
 public:
-    Respawner(Node &creatureParent);
+    explicit CreatureRespawner(Node &creatureParent);
     void update(float delta);
 
 private:

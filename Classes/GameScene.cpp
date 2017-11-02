@@ -1,6 +1,7 @@
 #include <string>
 #include "GameScene.h"
 #include "ScreenConsts.h"
+#include "CreatureRespawner.h"
 
 USING_NS_CC;
 
@@ -39,7 +40,7 @@ bool GameScene::init()
     score = 0;
     displayScore(score);
     
-    Respawner *respawner = new Respawner(*this);
+    CreatureRespawner *respawner = new CreatureRespawner(*this);
     addChild(respawner);
     
     return true;

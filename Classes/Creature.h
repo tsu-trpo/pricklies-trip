@@ -12,6 +12,6 @@ public:
 
 private:
     const int velocity = 300;
-    Sprite * sprite;
+    Sprite * sprite = nullptr;
 };
 

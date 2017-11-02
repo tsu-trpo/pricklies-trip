@@ -1,11 +1,12 @@
-#include "Respawner.h"
+#include "CreatureRespawner.h"
+#include "Creature.h"
 
-Respawner::Respawner(Node &creatureParent): currentTime{0}, spawnPoint{creatureParent} 
+CreatureRespawner::CreatureRespawner(Node &creatureParent): currentTime{0}, spawnPoint{creatureParent} 
 {
     scheduleUpdate();
 }
 
-void Respawner::update(float delta)
+void CreatureRespawner::update(float delta)
 {
     currentTime += delta;
     
