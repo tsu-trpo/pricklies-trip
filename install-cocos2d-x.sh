@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 set -x
+set -v
 
 mkdir $HOME/cocos
 
@@ -10,8 +11,8 @@ unzip $HOME/cocos/cocos2d-x-3.15.1.zip -d $HOME/cocos
 rm -f $HOME/cocos/cocos2d-x-3.15.1.zip
 
 
-cp $HOME/cocos/coc*/extern*/linux-specific/fmod/prebuilt/64-bit/libfmod.so /usr/lib
-cp $HOME/cocos/coc*/extern*/linux-specific/fmod/prebuilt/64-bit/libfmodL.so /usr/lib
+sudo cp $HOME/cocos/coc*/extern*/linux-specific/fmod/prebuilt/64-bit/libfmod.so /usr/lib
+sudo cp $HOME/cocos/coc*/extern*/linux-specific/fmod/prebuilt/64-bit/libfmodL.so /usr/lib
 ln -s libfmod.so libfmod.so.6
 
 cd $HOME/cocos/cocos*/build
