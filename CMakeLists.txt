@@ -132,7 +132,9 @@ set(GAME_SRC
   Classes/HelloWorldScene.cpp
   Classes/GameScene.cpp
   Classes/Creature.cpp
+  Classes/BackGround.cpp
   Classes/CreatureRespawner.cpp
+  Classes/BackGroundController.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
@@ -142,7 +144,9 @@ set(GAME_HEADERS
   Classes/GameScene.h
   Classes/ScreenConsts.h
   Classes/Creature.h
+  Classes/BackGround.h
   Classes/CreatureRespawner.h
+  Classes/BackGroundController.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
