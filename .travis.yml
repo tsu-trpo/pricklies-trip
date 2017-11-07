@@ -13,11 +13,9 @@ install:
     - chmod +x install-cocos2d-x.sh
     - ./install-cocos2d-x.sh
     - ls -la
-    - cd
     - chmod +x $HOME/cocos/cocos2d-x-3.15.1/tools/cocos2d-console/bin/cocos
 
 script:
     - ls -la
-    - cd ~/pricklies-trip
-    - cocos compile -p linux -s
+    - cocos compile -p linux -s .
 
