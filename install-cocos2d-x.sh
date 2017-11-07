@@ -1,7 +1,5 @@
 #!/bin/bash
-set -e
-set -x
-set -v
+set -exv
 
 mkdir $HOME/cocos
 
@@ -16,12 +14,15 @@ sudo cp $HOME/cocos/coc*/extern*/linux-specific/fmod/prebuilt/64-bit/libfmodL.so
 ln -s libfmod.so libfmod.so.6
 
 cd $HOME/cocos/cocos*/build
+echo Installing deps
 ./install-deps-linux.sh
 
 cd $HOME/cocos/cocos*/
+echo starting setup
 ./setup.py -q
 source ~/.bashrc
 
+echo Testing
 cd $HOME/cocos/cocos*/build
 mkdir linux-build
 cd linux-build
