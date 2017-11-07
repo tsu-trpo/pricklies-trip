@@ -11,7 +11,7 @@ public:
 
 private:
     double score = 0;
-    unsigned int scoreMultiplier = 1; 
-    cocos2d::Label *scoreLabel = nullptr;
-    cocos2d::Label *scoreTextLabel = nullptr;
+    unsigned int scoreMultiplier = 1;
+    Label *scoreLabel = nullptr;
+    Label *scoreTextLabel = nullptr;
 };
