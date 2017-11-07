@@ -9,11 +9,9 @@ compiler:
 
 
 before_install:
+    - git submodule update --recursive --init 
     - chmod +x install-cocos2d-x.sh
     - ./install-cocos2d-x.sh
-
-before_script:
-    - git submodule update --recursive --init 
 
 script:
     - cocos compile -p linux -s . 
