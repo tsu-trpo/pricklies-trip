@@ -18,5 +18,5 @@ install:
 
 script:
     - echo $PATH
-    - cocos compile -p linux -s .
+    - yes n | cocos compile -p linux -s .
 
