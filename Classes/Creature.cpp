@@ -8,7 +8,7 @@ Creature::Creature()
     const int number = random(0, numberOfPictures);
     std::string image = "Creatures/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
-    addChild(sprite);
+    addChild(sprite, 0);
 }
 
 Size Creature::getSize()
