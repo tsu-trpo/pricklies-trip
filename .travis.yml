@@ -11,7 +11,9 @@ compiler:
 install:
     - git submodule update --recursive --init 
     - chmod +x install-cocos2d-x.sh
+    - pushd .
     - source ./install-cocos2d-x.sh
+    - popd
     - echo $PATH
     - ls -l $HOME/cocos/cocos2d-x-3.15.1/tools/cocos2d-console/bin/cocos 
     - chmod +x $HOME/cocos/cocos2d-x-3.15.1/tools/cocos2d-console/bin/cocos
