@@ -7,7 +7,7 @@ Score::Score()
     scheduleUpdate();
 
     const int fontSize = 40;
-    std:: string scoreText = "Score: " + (std::to_string((size_t)score));
+    std::string scoreText = "Score: " + std::to_string((size_t)score);
     scoreLabel = Label::createWithTTF(scoreText , "fonts/Stripe.ttf", fontSize);
     scoreLabel->setColor(Color3B::WHITE);
 
@@ -21,5 +21,5 @@ Score::Score()
 void Score::update(float delta)
 {
     score += delta * scoreMultiplier;
-    scoreLabel->setString("Score: " + (std::to_string((size_t)score)));
+    scoreLabel->setString("Score: " + std::to_string((size_t)score));
 }
