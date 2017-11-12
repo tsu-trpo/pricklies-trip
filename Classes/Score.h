@@ -13,5 +13,4 @@ private:
     double score = 0;
     unsigned int scoreMultiplier = 1;
     Label *scoreLabel = nullptr;
-    Label *scoreTextLabel = nullptr;
 };
