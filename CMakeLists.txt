@@ -131,6 +131,7 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
   Classes/GameScene.cpp
+  Classes/Score.cpp
   Classes/Creature.cpp
   Classes/BackGround.cpp
   Classes/CreatureRespawner.cpp
@@ -143,6 +144,7 @@ set(GAME_HEADERS
   Classes/HelloWorldScene.h
   Classes/GameScene.h
   Classes/ScreenConsts.h
+  Classes/Score.h
   Classes/Creature.h
   Classes/BackGround.h
   Classes/CreatureRespawner.h
