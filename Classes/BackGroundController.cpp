@@ -1,7 +1,7 @@
 #include "BackGroundController.h"
 #include "BackGround.h"
 
-BackGroundController::BackGroundController(Node &creatureParent): spawnPoint{creatureParent}
+BackGroundController::BackGroundController(Node &backgroundParent): startPoint{backgroundParent}
 {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -16,18 +16,16 @@ BackGroundController::BackGroundController(Node &creatureParent): spawnPoint{cre
                       origin.y + visibleSize.height / 2);
 
     backOne->setPosition(positionOne);
-    spawnPoint.addChild(backOne,-1);
+    startPoint.addChild(backOne,-1);
 
     BackGround *backTwo = new BackGround(2);
-
     backTwo->setAnchorPoint(Vec2(0, 0.5));
+    
+    const int overlap = -10;
 
-    Point positionTwo(origin.x + backSize.width - 10,
+    Point positionTwo(origin.x + backSize.width + overlap,
                       origin.y + visibleSize.height / 2);
 
     backTwo->setPosition(positionTwo);
-    spawnPoint.addChild(backTwo,-1);
+    startPoint.addChild(backTwo,-1);
 }
-//объединить повторяющийся код
-
-

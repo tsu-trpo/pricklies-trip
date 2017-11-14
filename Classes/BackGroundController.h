@@ -6,9 +6,9 @@ USING_NS_CC;
 
 class BackGroundController: public Node {
 public:
-    explicit BackGroundController(Node &creatureParent);
+    explicit BackGroundController(Node &backgroundParent);
 
 private:
-    Node &spawnPoint;
+    Node &startPoint;
 };
 

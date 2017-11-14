@@ -16,21 +16,14 @@ Size BackGround::getSize()
 
 void BackGround::update(float delta)
 {
-    Point currentPosition = getPosition();
-    
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    Size backSize = getSize();
-    
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    
-    bool isOutOfScreen = currentPosition.x + backSize.width < origin.x;
+    bool isOutOfScreen = getPosition().x + getSize().width < origin.x;
     
     if (!isOutOfScreen) {
         const int offset = -delta * velocity;
-        setPositionX(currentPosition.x + offset);
+        setPositionX(getPosition().x + offset);
     } else {
         const int overlap = -20;
-        setPositionX(currentPosition.x + 2 * backSize.width + overlap);
+        setPositionX(getPosition().x + 2 * getSize().width + overlap);
     }
 }

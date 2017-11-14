@@ -42,8 +42,8 @@ bool GameScene::init()
     displayScore(score);
     
     
-    BackGroundController *backGround = new BackGroundController(*this);
-    addChild(backGround, -1);
+    BackGroundController *backController = new BackGroundController(*this);
+    addChild(backController, -1);
     
     CreatureRespawner *respawner = new CreatureRespawner(*this);
     addChild(respawner, 0);
