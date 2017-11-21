@@ -11,4 +11,3 @@ public:
 private:
     Node &startPoint;
 };
-

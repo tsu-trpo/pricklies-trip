@@ -108,4 +108,3 @@ void AppDelegate::applicationWillEnterForeground()
 
     AudioEngine::resumeAll();
 }
-

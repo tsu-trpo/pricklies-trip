@@ -10,7 +10,7 @@ Scene* HelloWorld::createScene()
 
 bool HelloWorld::init()
 {
-    if ( !Scene::init() ){
+    if (!Scene::init()) {
         return false;
     }
 
@@ -19,16 +19,18 @@ bool HelloWorld::init()
 
     Vector<MenuItem*> MenuItems;
     
-    auto startItem = MenuItemImage::create("play2.png", "play2.png",
+    auto startItem = MenuItemImage::create("play2.png",
+                                           "play2.png",
                                            CC_CALLBACK_1(HelloWorld::goToGameScene, this));
-    startItem->setPosition(Vec2(origin.x + visibleSize.width/2,
-                                origin.y + startItem->getContentSize().height/2 + 100));
+    startItem->setPosition(Vec2(origin.x + visibleSize.width / 2,
+                                origin.y + startItem->getContentSize().height / 2 + 100));
     MenuItems.pushBack(startItem);
     
-    auto closeItem = MenuItemImage::create("exit2.png", "exit2.png",
+    auto closeItem = MenuItemImage::create("exit2.png",
+                                           "exit2.png",
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 - 10,
-                                origin.y + closeItem->getContentSize().height/2 + 10));
+    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2 - 10,
+                                origin.y + closeItem->getContentSize().height / 2 + 10));
     MenuItems.pushBack(closeItem);
     
     auto menu = Menu::createWithArray(MenuItems);
@@ -36,7 +38,7 @@ bool HelloWorld::init()
     this->addChild(menu, 1);
 
     auto backGround = Sprite::create("background.png");
-    backGround->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    backGround->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     this->addChild(backGround, 0);
 
     return true;

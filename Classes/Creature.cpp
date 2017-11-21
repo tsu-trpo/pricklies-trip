@@ -34,4 +34,3 @@ void Creature::update(float delta)
 
     return;
 }
-

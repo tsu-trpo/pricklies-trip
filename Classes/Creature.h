@@ -15,4 +15,3 @@ private:
     const int velocity = 300;
     Sprite *sprite = nullptr;
 };
-
