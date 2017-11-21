@@ -6,24 +6,13 @@ BackGroundController::BackGroundController(Node &backgroundParent): startPoint{b
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
-    BackGround *backOne = new BackGround(1);
-
-    Size backSize = backOne->getSize();
-
-    backOne->setAnchorPoint(Vec2(0, 0.5));
-
-    Point positionOne(origin.x,
-                      origin.y + visibleSize.height / 2);
-
-    backOne->setPosition(positionOne);
-    startPoint.addChild(backOne,-1);
-
-    BackGround *backTwo = new BackGround(2);
-    backTwo->setAnchorPoint(Vec2(0, 0.5));
-
-    Point positionTwo(origin.x + backSize.width + overlap,
-                      origin.y + visibleSize.height / 2);
-
-    backTwo->setPosition(positionTwo);
-    startPoint.addChild(backTwo,-1);
+    for (int i=0; i<2; i++) {
+        BackGround *back = new BackGround(i+1);
+        Size backSize = back->getSize();
+        back->setAnchorPoint(Vec2(0, 0.5));
+        Point position(origin.x + backSize.width * i + overlap * i,
+                       origin.y + visibleSize.height / 2);
+        back->setPosition(position);
+        startPoint.addChild(back,-1);
+    }
 }
