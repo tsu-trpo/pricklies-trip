@@ -25,7 +25,7 @@ void Creature::update(float delta)
     
     bool isOutOfScreen = currentPosition.x < origin.x - creatureSize.width;
     if (!isOutOfScreen) {
-        const int offset = -delta * velocity;
+        const int offset = - delta * velocity;
         
         setPositionX(currentPosition.x + offset);
     } else {
@@ -34,3 +34,4 @@ void Creature::update(float delta)
 
     return;
 }
+

@@ -42,7 +42,7 @@ bool HelloWorld::init()
     return true;
 }
 
-void HelloWorld::menuCloseCallback(Ref* pSender)
+void HelloWorld::menuCloseCallback(Ref *pSender)
 {
     Director::getInstance()->end();
 }

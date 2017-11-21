@@ -7,10 +7,10 @@
 
 Private inheritance here hides part of interface from Director.
 */
-class  AppDelegate : private cocos2d::Application
-{
+class  AppDelegate : private cocos2d::Application {
 public:
     AppDelegate();
+    
     virtual ~AppDelegate();
 
     virtual void initGLContextAttrs();
@@ -34,5 +34,4 @@ public:
     */
     virtual void applicationWillEnterForeground();
 };
-
 
