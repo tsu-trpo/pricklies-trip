@@ -28,6 +28,3 @@ inline Vec2 getRightDownCorner()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     return Vec2(visibleOrigin.x + visibleSize.width, visibleOrigin.y);
 }
-
-//const int overlap = -10;
-
