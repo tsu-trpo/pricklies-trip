@@ -20,8 +20,6 @@ BackGroundController::BackGroundController(Node &backgroundParent): startPoint{b
 
     BackGround *backTwo = new BackGround(2);
     backTwo->setAnchorPoint(Vec2(0, 0.5));
-    
-    const int overlap = -10;
 
     Point positionTwo(origin.x + backSize.width + overlap,
                       origin.y + visibleSize.height / 2);

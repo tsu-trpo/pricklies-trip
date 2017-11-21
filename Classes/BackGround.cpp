@@ -23,7 +23,8 @@ void BackGround::update(float delta)
         const int offset = -delta * velocity;
         setPositionX(getPosition().x + offset);
     } else {
-        const int overlap = -20;
-        setPositionX(getPosition().x + 2 * getSize().width + overlap);
+        //константу overlap домножаем на 2, так как при перемещении первой из
+        //двух картинок образуется щель, которую нужно закрыть
+        setPositionX(getPosition().x + 2 * getSize().width + 2 * overlap);
     }
 }
