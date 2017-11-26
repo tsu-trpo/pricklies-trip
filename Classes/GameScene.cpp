@@ -2,7 +2,7 @@
 #include "GameScene.h"
 #include "Score.h"
 #include "CreatureRespawner.h"
-#include "BackGroundController.h"
+#include "BackgroundController.h"
 
 USING_NS_CC;
 
@@ -20,8 +20,8 @@ bool GameScene::init()
     Score *score = new Score();
     addChild(score, 0);
     
-    BackGroundController *backController = new BackGroundController(*this);
-    addChild(backController, -1);
+    BackgroundController *backgroundController = new BackgroundController(*this);
+    addChild(backgroundController, -1);
     
     CreatureRespawner *respawner = new CreatureRespawner(*this);
     addChild(respawner, 0);

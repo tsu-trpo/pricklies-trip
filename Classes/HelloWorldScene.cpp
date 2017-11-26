@@ -37,9 +37,10 @@ bool HelloWorld::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
 
-    auto backGround = Sprite::create("background.png");
-    backGround->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-    this->addChild(backGround, 0);
+    auto background = Sprite::create("background.png");
+    background->setPosition(Vec2(visibleSize.width / 2 + origin.x,
+                                 visibleSize.height / 2 + origin.y));
+    this->addChild(background, 0);
 
     return true;
 }

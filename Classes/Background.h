@@ -6,9 +6,9 @@ USING_NS_CC;
 
 const int overlap = -10;
 
-class BackGround: public Node {
+class Background: public Node {
 public:
-    explicit BackGround(int number);
+    explicit Background(int number);
     
     void update(float delta);
     Size getSize();

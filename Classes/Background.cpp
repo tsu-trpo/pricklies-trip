@@ -1,6 +1,6 @@
-#include "BackGround.h"
+#include "Background.h"
 
-BackGround::BackGround(int number)
+Background::Background(int number)
 {
     scheduleUpdate();
     
@@ -8,13 +8,13 @@ BackGround::BackGround(int number)
     addChild(sprite, -1);
 }
 
-Size BackGround::getSize()
+Size Background::getSize()
 {
     Size backSize = sprite->getContentSize();
     return backSize;
 }
 
-void BackGround::update(float delta)
+void Background::update(float delta)
 {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     bool isOutOfScreen = getPosition().x + getSize().width < origin.x;
@@ -23,8 +23,7 @@ void BackGround::update(float delta)
         const int offset = -delta * velocity;
         setPositionX(getPosition().x + offset);
     } else {
-        //константу overlap домножаем на 2, так как при перемещении первой из
-        //двух картинок образуется щель, которую нужно закрыть
-        setPositionX(getPosition().x + 2 * getSize().width + 2 * overlap);
+        double screenOffset = getSize().width + overlap;
+        setPositionX(getPosition().x + 2 * screenOffset);
     }
 }
