@@ -10,8 +10,8 @@ Background::Background(int number)
 
 Size Background::getSize()
 {
-    Size backSize = sprite->getContentSize();
-    return backSize;
+    Size backgroundSize = sprite->getContentSize();
+    return backgroundSize;
 }
 
 void Background::update(float delta)
