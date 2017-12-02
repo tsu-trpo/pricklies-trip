@@ -15,4 +15,3 @@ private:
     float currentTime = 0;
     Node &spawnPoint;
 };
-

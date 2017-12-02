@@ -4,14 +4,16 @@
 
 USING_NS_CC;
 
-class Creature: public Node {
+const int overlap = -10;
+
+class Background: public Node {
 public:
-    Creature();
+    explicit Background(int number);
     
     void update(float delta);
     Size getSize();
 
 private:
-    const int velocity = 300;
+    const int velocity = 200;
     Sprite *sprite = nullptr;
 };
