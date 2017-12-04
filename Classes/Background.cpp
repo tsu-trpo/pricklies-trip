@@ -4,7 +4,7 @@ Background::Background(int number)
 {
     scheduleUpdate();
     
-    sprite = Sprite::create("back-0" + std::to_string(number) + ".png");
+    sprite = Sprite::create("Background/background-0" + std::to_string(number) + ".png");
     addChild(sprite, -1);
 }
 
