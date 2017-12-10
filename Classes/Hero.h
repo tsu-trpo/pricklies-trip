@@ -14,7 +14,6 @@ public:
     const HeroState* getState() const;
     void setState(HeroState* state);
 
-    void input(Input input);
     void update(float delta) override;
     
     void onEnter() override;

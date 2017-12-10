@@ -28,11 +28,6 @@ const HeroState* Hero::getState() const
     return _state;
 }
 
-void Hero::input(Input input)
-{
-    _state->handleInput(this, input);
-}
-
 void Hero::update(float delta)
 {
     _state->handleUpdate(this, delta);
