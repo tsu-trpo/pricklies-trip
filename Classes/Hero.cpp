@@ -37,3 +37,18 @@ void Hero::update(float delta)
 {
     _state->handleUpdate(this, delta);
 }
+
+void Hero::onEnter()
+{
+    Sprite::onEnter();
+    auto keyListener = EventListenerKeyboard::create();
+    keyListener->onKeyPressed = CC_CALLBACK_2(Hero::onKeyPressed, this);
+ 
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
+}
+ 
+void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
+{
+    if (key == EventKeyboard::KeyCode::KEY_UP_ARROW)     
+        _state->handleInput(this,Input::JUMP_PRESS);
+}

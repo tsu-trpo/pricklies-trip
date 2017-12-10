@@ -16,6 +16,9 @@ public:
 
     void input(Input input);
     void update(float delta) override;
+    
+    void onEnter() override;
+    void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
 
 private:
     HeroState* _state;

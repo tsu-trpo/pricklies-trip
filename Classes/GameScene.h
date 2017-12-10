@@ -12,10 +12,6 @@ public:
     virtual bool init() override;
 
     CREATE_FUNC(GameScene);
-    
-    void initKeyboard();
-    void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
-
 private:
     Hero* hedgehog;
 };

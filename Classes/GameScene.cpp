@@ -19,8 +19,6 @@ bool GameScene::init()
         return false;
     }
 
-    initKeyboard();
-
     Score *score = new Score();
     addChild(score, 0);
     
@@ -35,18 +33,3 @@ bool GameScene::init()
 
     return true;
 }
-
-void GameScene::initKeyboard()
-{
-    auto keyListener = EventListenerKeyboard::create();
-    keyListener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
- 
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
-}
- 
-void GameScene::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
-{
-    if (key == EventKeyboard::KeyCode::KEY_UP_ARROW)     
-        hedgehog->input(Input::JUMP_PRESS);
-}
- 
