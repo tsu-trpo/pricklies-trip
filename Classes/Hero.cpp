@@ -10,9 +10,7 @@ Hero* Hero::create()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     hero->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 2.6));
     hero->setScale(0.8);
-    hero->setVelocity(170);
     hero->setState(&HeroState::running);
-    hero->scheduleUpdate();
 
     return hero;
 }
@@ -20,18 +18,13 @@ Hero* Hero::create()
 void Hero::setState(HeroState* state)
 {
     _state = state;
-    _state->setGraphics(this);
+    _state->setAnimation(this);
     CCLOG("New state %s", typeid(*_state).name());
 }
 
 const HeroState* Hero::getState() const
 {
     return _state;
-}
-
-void Hero::update(float delta)
-{
-    _state->handleUpdate(this, delta);
 }
 
 void Hero::onEnter()
@@ -47,14 +40,4 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 {
     if (key == EventKeyboard::KeyCode::KEY_UP_ARROW)     
         _state->handleInput(this,Input::JUMP_PRESS);
-}
-
-float Hero::getVelocity()
-{
-    return _jumpVelocity;
-}
-
-void Hero::setVelocity(float velocity)
-{
-    _jumpVelocity = velocity;
 }

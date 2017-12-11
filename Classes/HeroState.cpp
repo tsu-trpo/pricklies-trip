@@ -3,7 +3,6 @@
 
 Run  HeroState::running;
 Jump HeroState::jumping;
-Fall HeroState::falling;
 Die  HeroState::dying;
 
 void Run::handleInput(Hero* hero, Input input)
@@ -12,85 +11,53 @@ void Run::handleInput(Hero* hero, Input input)
         hero->setState(&HeroState::jumping);
 }
 
-void Run::handleUpdate(Hero* hero, float delta) {}
-
-void Run::setGraphics(Hero* hero)
+void Run::setAnimation(Hero* hero)
 {
     Vector<SpriteFrame*> frames;
     frames.reserve(2);
     auto position = hero->getTextureRect();
     frames.pushBack(SpriteFrame::create("hedge_c.png", position));        
     frames.pushBack(SpriteFrame::create("hedge_c_1.png", position));
-    Animation* movingPaws = Animation::createWithSpriteFrames(frames, 0.2f);
+
+    Animation* movingPaws = Animation::createWithSpriteFrames(frames, runDelay);
     Animate* movePaws = Animate::create(movingPaws);
     hero->runAction(RepeatForever::create(movePaws));
 }
 
 
 
-void Jump::handleInput(Hero* hero, Input input) {}
-
-void Jump::handleUpdate(Hero* hero, float delta)
+void Jump::handleInput(Hero* hero, Input input) 
 {
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    float startY = visibleSize.height / 2.6; 
-    float maxY = startY + hero->getContentSize().height * 0.7;
-    float newOffset = hero->getVelocity() * delta - g * pow(delta,2.0) / 2;
-    float newY = hero->getPosition().y + newOffset;
-    hero->setVelocity(hero->getVelocity() - g * delta);
-    if (newY <= maxY) { 
-        auto move = MoveBy::create(delta, Vec2(0, newOffset));
-        hero->runAction(move);
-    }
-    else {
-        //hero->setVelocity(0);
-        hero->setState(&HeroState::falling);
-    }
+
 }
 
-void Jump::setGraphics(Hero* hero)
+void Jump::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
+
+    float jumpHeight = hero->getContentSize().height * 0.8;
+    auto jump = JumpBy::create(jumpDuration, Vec2(0,0), jumpHeight, 1);
+    auto changeState = CallFunc::create([hero]() {
+            hero->setState(&HeroState::running);        
+        });
+    hero->runAction(Sequence::create(jump, changeState, nullptr));
 }
 
 
 
-void Fall::handleInput(Hero* hero, Input input) {}
-void Fall::handleUpdate(Hero* hero, float delta)
+void Die::handleInput(Hero* hero, Input input) 
 {
-    auto visibleSize = Director::getInstance()->getVisibleSize();    
-    float startY = visibleSize.height / 2.6;
-    float newOffset = hero->getVelocity() * delta + g * pow(delta,2.0) / 2;
-    float newY = hero->getPosition().y - newOffset;
-    hero->setVelocity(hero->getVelocity() + g * delta);
-    if (newY >= startY) {
-        auto move = MoveBy::create(delta, Vec2(0, -newOffset));
-        hero->runAction(move);
-    }
-    else {
-        hero->setVelocity(170);
-        hero->setState(&HeroState::running);
-    }
+
 }
 
-void Fall::setGraphics(Hero* hero)
-{
-   hero->stopAllActions();
-}
-
-
-void Die::handleInput(Hero* hero, Input input) {}
-
-void Die::handleUpdate(Hero* hero, float delta)
-{
-    float currentRotation = hero->getRotation();
-    float newRotation = currentRotation + addAngle;
-    if (newRotation <= 180.0f)
-        hero->setRotation(newRotation);
-}
-
-void Die::setGraphics(Hero* hero)
+void Die::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
     hero->setTexture("hedge_c.png");
+    
+    auto rotate = RotateBy::create(deathDuration, 180);
+    auto jump = JumpBy::create(2*deathDuration, Vec2(0,-hero->getContentSize().height * 0.5), hero->getContentSize().height * 0.7, 1);
+    auto ease = EaseElasticOut::create(jump);
+    auto fade = FadeTo::create(deathDuration, 190);
+    hero->runAction(Spawn::create(ease, rotate, fade, nullptr));
 }

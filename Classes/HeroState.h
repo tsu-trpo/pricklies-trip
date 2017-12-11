@@ -5,13 +5,12 @@
 #include "enum.h"
 USING_NS_CC;
 
-//const float jumpOffset = 10.0f;
-const float addAngle = 12.0f;
-const float g = 30;
+const float jumpDuration = 1.7f;
+const float deathDuration = 2;
+const float runDelay = 0.2f;
 
 class Run;
 class Jump;
-class Fall;
 class Die;
 class Hero;
 
@@ -19,42 +18,29 @@ class HeroState {
 public:
     static Run running;
     static Jump jumping;
-    static Fall falling;
     static Die dying;
 
     virtual void handleInput(Hero* hero, Input input) = 0;
-    virtual void handleUpdate(Hero* hero, float delta) = 0;
-    virtual void setGraphics(Hero* hero) = 0;
+    virtual void setAnimation(Hero* hero) = 0;
 };
 
 
 class Run : public HeroState {
 public:
     virtual void handleInput(Hero* hero, Input input);
-    virtual void handleUpdate(Hero* hero, float delta);
-    virtual void setGraphics(Hero* hero);
+    virtual void setAnimation(Hero* hero);
 };
 
 
 class Jump : public HeroState {
 public:
     virtual void handleInput(Hero* hero, Input input);
-    virtual void handleUpdate(Hero* hero, float delta);
-    virtual void setGraphics(Hero* hero); 
-};
-
-
-class Fall : public HeroState {
-public:
-    virtual void handleInput(Hero* hero, Input input);
-    virtual void handleUpdate(Hero* hero, float delta);
-    virtual void setGraphics(Hero* hero);
+    virtual void setAnimation(Hero* hero); 
 };
 
 
 class Die : public HeroState {
 public:
     virtual void handleInput(Hero* hero, Input input);
-    virtual void handleUpdate(Hero* hero, float delta);    
-    virtual void setGraphics(Hero* hero); 
+    virtual void setAnimation(Hero* hero); 
 };
