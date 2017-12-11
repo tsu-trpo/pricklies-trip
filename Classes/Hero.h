@@ -19,7 +19,9 @@ public:
     void onEnter() override;
     void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
 
+    float getVelocity();
+    void setVelocity(float);
 private:
     HeroState* _state;
-
+    float _jumpVelocity;
 };

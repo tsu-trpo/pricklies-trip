@@ -10,6 +10,7 @@ Hero* Hero::create()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     hero->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 2.6));
     hero->setScale(0.8);
+    hero->setVelocity(170);
     hero->setState(&HeroState::running);
     hero->scheduleUpdate();
 
@@ -46,4 +47,14 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 {
     if (key == EventKeyboard::KeyCode::KEY_UP_ARROW)     
         _state->handleInput(this,Input::JUMP_PRESS);
+}
+
+float Hero::getVelocity()
+{
+    return _jumpVelocity;
+}
+
+void Hero::setVelocity(float velocity)
+{
+    _jumpVelocity = velocity;
 }

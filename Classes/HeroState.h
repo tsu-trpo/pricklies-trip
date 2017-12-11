@@ -5,8 +5,9 @@
 #include "enum.h"
 USING_NS_CC;
 
-const float jumpOffset = 10.0f;
+//const float jumpOffset = 10.0f;
 const float addAngle = 12.0f;
+const float g = 30;
 
 class Run;
 class Jump;
