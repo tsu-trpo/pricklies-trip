@@ -35,7 +35,7 @@ void Jump::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
 
-    float jumpHeight = hero->getContentSize().height * 0.8;
+    float jumpHeight = hero->getContentSize().height * 0.9;
     auto jump = JumpBy::create(jumpDuration, Vec2(0,0), jumpHeight, 1);
     auto changeState = CallFunc::create([hero]() {
             hero->setState(&HeroState::running);        
@@ -53,11 +53,13 @@ void Die::handleInput(Hero* hero, Input input)
 void Die::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
-    hero->setTexture("hedge_c.png");
-    
+    hero->setTexture("died.png");
+   
+    float newY = -hero->getContentSize().height * 0.2;
+    float jumpDeathHeight = hero->getContentSize().height * 0.8;
+
     auto rotate = RotateBy::create(deathDuration, 180);
-    auto jump = JumpBy::create(2*deathDuration, Vec2(0,-hero->getContentSize().height * 0.5), hero->getContentSize().height * 0.7, 1);
+    auto jump = JumpBy::create(2 * deathDuration, Vec2(0,newY), jumpDeathHeight, 1);
     auto ease = EaseElasticOut::create(jump);
-    auto fade = FadeTo::create(deathDuration, 190);
-    hero->runAction(Spawn::create(ease, rotate, fade, nullptr));
+    hero->runAction(Spawn::create(ease, rotate, nullptr));
 }
