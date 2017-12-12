@@ -142,6 +142,7 @@ set(GAME_HEADERS
   Classes/HelloWorldScene.h
   Classes/GameScene.h
   Classes/ScreenConsts.h
+  Classes/Events.h
   Classes/Score.h
   Classes/Creature.h
   Classes/CreatureRespawner.h
@@ -189,6 +190,8 @@ else()
   pre_build(${APP_NAME}
     COMMAND ${CMAKE_COMMAND} -E remove_directory ${APP_BIN_DIR}/Resources
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/Resources ${APP_BIN_DIR}/Resources
+    COMMAND ${CMAKE_COMMAND} -E remove_directory Tests/Resources
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/Resources Tests/Resources
     )
 
 endif()
