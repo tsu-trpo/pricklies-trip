@@ -1,6 +1,7 @@
 #include <string>
 #include "Score.h"
 #include "ScreenConsts.h"
+#include "Events.h"
 
 Score::Score()
 {
@@ -16,6 +17,26 @@ Score::Score()
     scoreLabel->setAnchorPoint(Vec2(0, 0.5));
     scoreLabel->setPosition(getLeftUpCorner() + offset);
     addChild(scoreLabel, -1);
+
+    addEvents();
+}
+
+void Score::addEvents()
+{
+    getEventDispatcher()->addCustomEventListener(eatGoodiesEvent, [&](EventCustom* event){
+        unsigned int applePoints = 200;
+        score += applePoints;
+    });
+}
+
+Score::~Score()
+{
+    getEventDispatcher()->removeCustomEventListeners(eatGoodiesEvent);
+}
+
+double Score::getScorePoints()
+{
+   return score;
 }
 
 void Score::update(float delta)
