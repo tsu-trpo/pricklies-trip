@@ -4,6 +4,7 @@ project(${TESTS_NAME})
 add_executable(${PROJECT_NAME}
     example.cpp
     main.cpp
+    Score.test.cpp
 )
 
 
@@ -15,7 +16,7 @@ target_link_libraries(${PROJECT_NAME}
 
 add_test(
     NAME ${PROJECT_NAME}
-    COMMAND ${PROJECT_NAME} 
+    COMMAND ${PROJECT_NAME}
     --gtest_color=yes
 )
 
