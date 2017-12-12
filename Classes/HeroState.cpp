@@ -1,5 +1,4 @@
 #include "HeroState.h"
-#include <math.h>
 
 Run  HeroState::running;
 Jump HeroState::jumping;
