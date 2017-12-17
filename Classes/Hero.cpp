@@ -4,7 +4,7 @@ USING_NS_CC;
 
 Hero* Hero::create()
 {
-    Hero* hero = new (std::nothrow) Hero();
+    Hero* hero = new Hero();
     hero->initWithFile("hedge_c_1.png");
     hero->autorelease();
 
