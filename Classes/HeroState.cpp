@@ -4,6 +4,10 @@ Run  HeroState::running;
 Jump HeroState::jumping;
 Die  HeroState::dying;
 
+const float jumpDuration = 2.0;
+const float deathDuration = 2.0;
+const float runDelay = 0.2;
+
 void Run::handleInput(Hero* hero, Input input)
 {
     if (input == Input::JUMP_PRESS) { 

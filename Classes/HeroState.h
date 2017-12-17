@@ -5,10 +5,6 @@
 #include "Input.h"
 USING_NS_CC;
 
-const float jumpDuration = 2;
-const float deathDuration = 2;
-const float runDelay = 0.2f;
-
 class Run;
 class Jump;
 class Die;
