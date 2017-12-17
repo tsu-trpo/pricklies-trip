@@ -23,20 +23,20 @@ public:
 
 class RunState: public HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input);
-    virtual void setAnimation(Hero* hero);
+    virtual void handleInput(Hero* hero, Input input) override;
+    virtual void setAnimation(Hero* hero) override;
 };
 
 
 class JumpState: public HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input);
-    virtual void setAnimation(Hero* hero); 
+    virtual void handleInput(Hero* hero, Input input) override;
+    virtual void setAnimation(Hero* hero) override; 
 };
 
 
 class DieState: public HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input);
-    virtual void setAnimation(Hero* hero); 
+    virtual void handleInput(Hero* hero, Input input) override;
+    virtual void setAnimation(Hero* hero) override; 
 };
