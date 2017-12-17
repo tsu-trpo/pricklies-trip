@@ -12,5 +12,5 @@ public:
 
     CREATE_FUNC(GameScene);
 private:
-    Hero* hedgehog;
+    Hero* hedgehog = nullptr;
 };
