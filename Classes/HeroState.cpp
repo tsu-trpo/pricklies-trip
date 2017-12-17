@@ -6,8 +6,9 @@ Die  HeroState::dying;
 
 void Run::handleInput(Hero* hero, Input input)
 {
-    if (input == Input::JUMP_PRESS) 
+    if (input == Input::JUMP_PRESS) { 
         hero->setState(&HeroState::jumping);
+    }
 }
 
 void Run::setAnimation(Hero* hero)
@@ -22,8 +23,6 @@ void Run::setAnimation(Hero* hero)
     Animate* movePaws = Animate::create(movingPaws);
     hero->runAction(RepeatForever::create(movePaws));
 }
-
-
 
 void Jump::handleInput(Hero* hero, Input input) 
 {
@@ -41,8 +40,6 @@ void Jump::setAnimation(Hero* hero)
         });
     hero->runAction(Sequence::create(jump, changeState, nullptr));
 }
-
-
 
 void Die::handleInput(Hero* hero, Input input) 
 {

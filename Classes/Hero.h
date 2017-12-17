@@ -16,5 +16,5 @@ public:
     void onEnter() override;
     void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
 private:
-    HeroState* _state = nullptr;
+    HeroState* heroState = nullptr;
 };

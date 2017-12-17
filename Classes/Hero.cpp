@@ -18,14 +18,14 @@ Hero* Hero::create()
 
 void Hero::setState(HeroState* state)
 {
-    _state = state;
-    _state->setAnimation(this);
-    CCLOG("New state %s", typeid(*_state).name());
+    heroState = state;
+    heroState->setAnimation(this);
+    CCLOG("New state %s", typeid(*heroState).name());
 }
 
 const HeroState* Hero::getState() const
 {
-    return _state;
+    return heroState;
 }
 
 void Hero::onEnter()
@@ -39,6 +39,7 @@ void Hero::onEnter()
  
 void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 {
-    if (key == EventKeyboard::KeyCode::KEY_UP_ARROW)     
-        _state->handleInput(this,Input::JUMP_PRESS);
+    if (key == EventKeyboard::KeyCode::KEY_UP_ARROW) {    
+        heroState->handleInput(this,Input::JUMP_PRESS);
+    }
 }
