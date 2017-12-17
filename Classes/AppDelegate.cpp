@@ -20,6 +20,24 @@ AppDelegate::~AppDelegate()
     AudioEngine::end();
 }
 
+void AppDelegate::initializeGlview()
+{
+    auto director = Director::getInstance();
+    auto glview = director->getOpenGLView();
+
+    if(!glview) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+        glview = GLViewImpl::createWithRect("PT", cocos2d::Rect(0,
+                                                                0,
+                                                                designResolutionSize.width,
+                                                                designResolutionSize.height));
+#else
+        glview = GLViewImpl::create("PT");
+#endif
+        director->setOpenGLView(glview);
+    }
+}
+
 // if you want a different context, modify the value of glContextAttrs
 // it will affect all platforms
 void AppDelegate::initGLContextAttrs()
@@ -35,25 +53,6 @@ void AppDelegate::initGLContextAttrs()
 static int register_all_packages()
 {
     return 0; //flag for packages manager
-}
-
-void AppDelegate::initializeGlview()
-{
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-
-    if(!glview) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("PT", cocos2d::Rect(0,
-                                                                0,
-                                                                designResolutionSize.width,
-                                                                designResolutionSize.height));
-
-#else
-        glview = GLViewImpl::create("PT");
-#endif
-        director->setOpenGLView(glview);
-    }
 }
 
 bool AppDelegate::applicationDidFinishLaunching()

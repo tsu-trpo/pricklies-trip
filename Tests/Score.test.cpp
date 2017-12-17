@@ -11,8 +11,8 @@ TEST(Score, EventDispatcher)
   app.initializeGlview();
 
   Score *score = new Score();
-  score -> getEventDispatcher() -> setEnabled(true);
-  score -> getEventDispatcher() -> dispatchCustomEvent(eatGoodiesEvent);
+  score->getEventDispatcher()->setEnabled(true);
+  score->getEventDispatcher()->dispatchCustomEvent(eatGoodiesEvent);
 
-  ASSERT_EQ(score -> getScorePoints(), 200);
+  ASSERT_EQ(score->getScorePoints(), 200);
 }

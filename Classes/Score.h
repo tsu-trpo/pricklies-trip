@@ -8,7 +8,7 @@ class Score: public Node {
 public:
     Score();
     ~Score();
-    void addEvents();
+    void addEventsListener();
     double getScorePoints();
     void update(float delta);
 

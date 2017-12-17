@@ -18,14 +18,14 @@ Score::Score()
     scoreLabel->setPosition(getLeftUpCorner() + offset);
     addChild(scoreLabel, -1);
 
-    addEvents();
+    addEventsListener();
 }
 
-void Score::addEvents()
+void Score::addEventsListener()
 {
     getEventDispatcher()->addCustomEventListener(eatGoodiesEvent, [&](EventCustom* event){
-        unsigned int applePoints = 200;
-        score += applePoints;
+        unsigned int goodieReward = 200;
+        score += goodieReward;
     });
 }
 
