@@ -1,4 +1,5 @@
 #include "Hero.h"
+#include "Input.h"
 USING_NS_CC;
 
 Hero* Hero::create()

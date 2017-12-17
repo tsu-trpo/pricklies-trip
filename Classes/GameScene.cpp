@@ -4,7 +4,6 @@
 #include "CreatureRespawner.h"
 #include "BackgroundController.h"
 #include "Hero.h"
-#include "enum.h"
 
 USING_NS_CC;
 

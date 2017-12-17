@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 #include "Hero.h"
-#include "enum.h"
+#include "Input.h"
 USING_NS_CC;
 
 const float jumpDuration = 2;

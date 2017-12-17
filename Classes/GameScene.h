@@ -2,7 +2,6 @@
 
 #include "cocos2d.h"
 #include "Hero.h"
-#include "enum.h"
 USING_NS_CC;
 
 class GameScene : public cocos2d::Scene {

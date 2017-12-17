@@ -151,7 +151,7 @@ set(GAME_HEADERS
   Classes/Background.h
   Classes/CreatureRespawner.h
   Classes/BackgroundController.h
-  Classes/enum.h
+  Classes/Input.h
   Classes/Hero.h
   Classes/HeroState.h
   ${PLATFORM_SPECIFIC_HEADERS}

@@ -2,7 +2,6 @@
 
 #include "cocos2d.h"
 #include "HeroState.h"
-#include "enum.h"
 USING_NS_CC;
 
 class HeroState;
