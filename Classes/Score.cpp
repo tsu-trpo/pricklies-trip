@@ -18,10 +18,10 @@ Score::Score()
     scoreLabel->setPosition(getLeftUpCorner() + offset);
     addChild(scoreLabel, -1);
 
-    addEventsListener();
+    addEventListener();
 }
 
-void Score::addEventsListener()
+void Score::addEventListener()
 {
     getEventDispatcher()->addCustomEventListener(eatGoodiesEvent, [&](EventCustom* event){
         unsigned int goodieReward = 200;
