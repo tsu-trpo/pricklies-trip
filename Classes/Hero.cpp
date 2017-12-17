@@ -20,12 +20,6 @@ void Hero::setState(HeroState* state)
 {
     heroState = state;
     heroState->setAnimation(this);
-    CCLOG("New state %s", typeid(*heroState).name());
-}
-
-const HeroState* Hero::getState() const
-{
-    return heroState;
 }
 
 void Hero::onEnter()

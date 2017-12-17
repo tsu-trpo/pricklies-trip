@@ -10,9 +10,7 @@ class Hero: public Sprite {
 public:
     static Hero* create();
 
-    const HeroState* getState() const;
     void setState(HeroState* state);
-
     void onEnter() override;
     void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
 private:
