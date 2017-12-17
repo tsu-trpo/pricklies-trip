@@ -15,9 +15,6 @@ ln -s libfmod.so libfmod.so.6
 cd $HOME/cocos/cocos*/build
 ./install-deps-linux.sh
 
-cd $HOME/cocos/cocos*/tools/travis-scr*/
-./install_glfw.sh
-
 cd $HOME/cocos/cocos*/
 ./setup.py -q
 source ~/.bashrc
