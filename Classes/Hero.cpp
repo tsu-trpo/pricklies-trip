@@ -5,7 +5,7 @@ USING_NS_CC;
 Hero* Hero::create()
 {
     Hero* hero = new Hero();
-    hero->initWithFile("hedge_c_1.png");
+    hero->initWithFile("Creatures/Hedgehog/hedge_c_1.png");
     hero->autorelease();
 
     auto visibleSize = Director::getInstance()->getVisibleSize();

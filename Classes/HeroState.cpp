@@ -20,8 +20,8 @@ void RunState::setAnimation(Hero* hero)
     Vector<SpriteFrame*> frames;
     frames.reserve(2);
     auto position = hero->getTextureRect();
-    frames.pushBack(SpriteFrame::create("hedge_c.png", position));        
-    frames.pushBack(SpriteFrame::create("hedge_c_1.png", position));
+    frames.pushBack(SpriteFrame::create("Creatures/Hedgehog/hedge_c.png", position));        
+    frames.pushBack(SpriteFrame::create("Creatures/Hedgehog/hedge_c_1.png", position));
 
     Animation* movingPaws = Animation::createWithSpriteFrames(frames, runDelay);
     Animate* movePaws = Animate::create(movingPaws);
@@ -53,7 +53,7 @@ void DieState::handleInput(Hero* hero, Input input)
 void DieState::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
-    hero->setTexture("died.png");
+    hero->setTexture("Creatures/Hedgehog/died.png");
    
     float newY = -hero->getContentSize().height * 0.2;
     float jumpDeathHeight = hero->getContentSize().height * 0.8;
