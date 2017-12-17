@@ -22,11 +22,9 @@ inline Vec2 getRightUpCorner()
     return Vec2(visibleOrigin.x + visibleSize.width, visibleOrigin.y + visibleSize.height);
 }
 
-
 inline Vec2 getRightDownCorner()
 {
     Vec2 visibleOrigin = Director::getInstance()->getVisibleOrigin();
     Size visibleSize = Director::getInstance()->getVisibleSize();
     return Vec2(visibleOrigin.x + visibleSize.width, visibleOrigin.y);
 }
-

@@ -30,4 +30,3 @@ void CreatureRespawner::update(float delta)
     
     return;
 }
-
