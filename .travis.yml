@@ -8,11 +8,6 @@ language:
 compiler: 
     - gcc
 
-addons:
-    apt:
-        packages:
-            - xvfb
-
 install:
     - git submodule update --recursive --init 
     - chmod +x install-cocos2d-x.sh
