@@ -8,6 +8,10 @@ language:
 compiler: 
     - gcc
 
+addons:
+    apt:
+        packages:
+            - xvfb
 
 install:
     - git submodule update --recursive --init 
