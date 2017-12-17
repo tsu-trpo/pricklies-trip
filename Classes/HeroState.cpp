@@ -1,21 +1,21 @@
 #include "HeroState.h"
 
-Run  HeroState::running;
-Jump HeroState::jumping;
-Die  HeroState::dying;
+RunState  HeroState::running;
+JumpState HeroState::jumping;
+DieState  HeroState::dying;
 
 const float jumpDuration = 2.0;
 const float deathDuration = 2.0;
 const float runDelay = 0.2;
 
-void Run::handleInput(Hero* hero, Input input)
+void RunState::handleInput(Hero* hero, Input input)
 {
     if (input == Input::JUMP_PRESS) { 
         hero->setState(&HeroState::jumping);
     }
 }
 
-void Run::setAnimation(Hero* hero)
+void RunState::setAnimation(Hero* hero)
 {
     Vector<SpriteFrame*> frames;
     frames.reserve(2);
@@ -28,12 +28,12 @@ void Run::setAnimation(Hero* hero)
     hero->runAction(RepeatForever::create(movePaws));
 }
 
-void Jump::handleInput(Hero* hero, Input input) 
+void JumpState::handleInput(Hero* hero, Input input) 
 {
 
 }
 
-void Jump::setAnimation(Hero* hero)
+void JumpState::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
 
@@ -45,12 +45,12 @@ void Jump::setAnimation(Hero* hero)
     hero->runAction(Sequence::create(jump, changeState, nullptr));
 }
 
-void Die::handleInput(Hero* hero, Input input) 
+void DieState::handleInput(Hero* hero, Input input) 
 {
 
 }
 
-void Die::setAnimation(Hero* hero)
+void DieState::setAnimation(Hero* hero)
 {
     hero->stopAllActions();
     hero->setTexture("died.png");

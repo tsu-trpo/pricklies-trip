@@ -5,37 +5,37 @@
 #include "Input.h"
 USING_NS_CC;
 
-class Run;
-class Jump;
-class Die;
+class RunState;
+class JumpState;
+class DieState;
 class Hero;
 
 class HeroState {
 public:
-    static Run running;
-    static Jump jumping;
-    static Die dying;
+    static RunState running;
+    static JumpState jumping;
+    static DieState dying;
 
     virtual void handleInput(Hero* hero, Input input) = 0;
     virtual void setAnimation(Hero* hero) = 0;
 };
 
 
-class Run : public HeroState {
+class RunState: public HeroState {
 public:
     virtual void handleInput(Hero* hero, Input input);
     virtual void setAnimation(Hero* hero);
 };
 
 
-class Jump : public HeroState {
+class JumpState: public HeroState {
 public:
     virtual void handleInput(Hero* hero, Input input);
     virtual void setAnimation(Hero* hero); 
 };
 
 
-class Die : public HeroState {
+class DieState: public HeroState {
 public:
     virtual void handleInput(Hero* hero, Input input);
     virtual void setAnimation(Hero* hero); 
