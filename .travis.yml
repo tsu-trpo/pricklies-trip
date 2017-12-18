@@ -1,0 +1,26 @@
+sudo: requared
+dist: trusty
+group: deprecated-2017Q4
+
+language: 
+    - cpp
+
+compiler: 
+    - gcc
+
+
+install:
+    - git submodule update --recursive --init 
+    - chmod +x install-cocos2d-x.sh
+    - pushd .
+    - source ./install-cocos2d-x.sh
+    - popd
+
+before_script:
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
+    - sleep 3 # give xvfb some time to start
+
+script:
+    - yes n | cocos compile -p linux -s .
+
