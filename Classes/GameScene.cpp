@@ -1,4 +1,3 @@
-#include <string>
 #include "GameScene.h"
 #include "Score.h"
 #include "CreatureRespawner.h"
@@ -19,12 +18,12 @@ bool GameScene::init()
 
     Score *score = new Score();
     addChild(score, 0);
-    
+
     BackgroundController *backgroundController = new BackgroundController(*this);
     addChild(backgroundController, -1);
-    
+
     CreatureRespawner *respawner = new CreatureRespawner(*this);
     addChild(respawner, 0);
-    
+
     return true;
 }
