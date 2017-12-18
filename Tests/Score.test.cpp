@@ -7,12 +7,12 @@ USING_NS_CC;
 
 TEST(Score, EventDispatcher)
 {
-  AppDelegate app;
-  app.initializeGlview();
+    AppDelegate app;
+    app.initializeGlview();
 
-  Score *score = new Score();
-  score->getEventDispatcher()->setEnabled(true);
-  score->getEventDispatcher()->dispatchCustomEvent(eatGoodiesEvent);
+    Score *score = new Score();
+    score->getEventDispatcher()->setEnabled(true);
+    score->getEventDispatcher()->dispatchCustomEvent(eatGoodiesEvent);
 
-  ASSERT_EQ(score->getScorePoints(), 200);
+    ASSERT_EQ(score->getScorePoints(), 200);
 }

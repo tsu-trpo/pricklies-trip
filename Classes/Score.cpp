@@ -36,7 +36,7 @@ Score::~Score()
 
 double Score::getScorePoints()
 {
-   return score;
+    return score;
 }
 
 void Score::update(float delta)
