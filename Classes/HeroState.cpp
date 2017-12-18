@@ -1,17 +1,14 @@
 #include "HeroState.h"
 
-RunState  HeroState::running;
-JumpState HeroState::jumping;
-DieState  HeroState::dying;
-
 const float jumpDuration = 2.0;
 const float deathDuration = 2.0;
 const float runDelay = 0.2;
 
 void RunState::handleInput(Hero* hero, Input input)
 {
-    if (input == Input::JUMP_PRESS) { 
-        hero->setState(&HeroState::jumping);
+    if (input == Input::JUMP_PRESS) {
+        JumpState* jumping = new JumpState();
+        hero->setState(jumping);
     }
 }
 
@@ -40,7 +37,8 @@ void JumpState::setAnimation(Hero* hero)
     float jumpHeight = hero->getContentSize().height * 0.9;
     auto jump = JumpBy::create(jumpDuration, Vec2(0,0), jumpHeight, 1);
     auto changeState = CallFunc::create([hero]() {
-            hero->setState(&HeroState::running);        
+            RunState* running = new RunState();
+            hero->setState(running);        
         });
     hero->runAction(Sequence::create(jump, changeState, nullptr));
 }

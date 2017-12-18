@@ -12,10 +12,6 @@ class Hero;
 
 class HeroState {
 public:
-    static RunState running;
-    static JumpState jumping;
-    static DieState dying;
-
     virtual void handleInput(Hero* hero, Input input) = 0;
     virtual void setAnimation(Hero* hero) = 0;
 };
