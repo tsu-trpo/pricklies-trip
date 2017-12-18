@@ -12,27 +12,36 @@ class Hero;
 
 class HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input) = 0;
-    virtual void setAnimation(Hero* hero) = 0;
+    HeroState(Hero* heroPointer);
+    virtual void handleInput(Input input) = 0;
+    virtual void setAnimation() = 0;
+
+    Hero* hero = nullptr;
 };
 
 
 class RunState: public HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input) override;
-    virtual void setAnimation(Hero* hero) override;
+    using HeroState::HeroState;
+
+    virtual void handleInput(Input input) override;
+    virtual void setAnimation() override;
 };
 
 
 class JumpState: public HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input) override;
-    virtual void setAnimation(Hero* hero) override; 
+    using HeroState::HeroState;
+
+    virtual void handleInput(Input input) override;
+    virtual void setAnimation() override; 
 };
 
 
 class DieState: public HeroState {
 public:
-    virtual void handleInput(Hero* hero, Input input) override;
-    virtual void setAnimation(Hero* hero) override; 
+    using HeroState::HeroState;
+
+    virtual void handleInput(Input input) override;
+    virtual void setAnimation() override; 
 };

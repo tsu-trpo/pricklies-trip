@@ -11,7 +11,7 @@ Hero* Hero::create()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     hero->setPosition(Vec2(visibleSize.width / 4.0, visibleSize.height / 2.6));
     hero->setScale(0.8);
-    RunState* running = new RunState();
+    RunState* running = new RunState(hero);
     hero->setState(running);
 
     return hero;
@@ -24,7 +24,7 @@ void Hero::setState(HeroState* state)
     }
 
     heroState = state;
-    heroState->setAnimation(this);
+    heroState->setAnimation();
 }
 
 void Hero::onEnter()
@@ -39,6 +39,6 @@ void Hero::onEnter()
 void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 {
     if (key == EventKeyboard::KeyCode::KEY_UP_ARROW) {    
-        heroState->handleInput(this,Input::JUMP_PRESS);
+        heroState->handleInput(Input::JUMP_PRESS);
     }
 }
