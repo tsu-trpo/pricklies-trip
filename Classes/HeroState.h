@@ -15,7 +15,7 @@ public:
     HeroState(Hero* heroPointer);
     virtual void handleInput(Input input) = 0;
     virtual void setAnimation() = 0;
-
+protected:
     Hero* hero = nullptr;
 };
 
