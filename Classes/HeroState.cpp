@@ -20,6 +20,8 @@ void RunState::handleInput(Input input)
 
 void RunState::setAnimation()
 {
+    hero->stopAllActions();
+
     Vector<SpriteFrame*> frames;
     frames.reserve(2);
     auto position = hero->getTextureRect();
@@ -57,6 +59,7 @@ void DieState::handleInput(Input input)
 void DieState::setAnimation()
 {
     hero->stopAllActions();
+
     hero->setTexture("Creatures/Hedgehog/died.png");
    
     float newY = -hero->getContentSize().height * 0.2;
