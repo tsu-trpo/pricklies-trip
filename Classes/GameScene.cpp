@@ -27,7 +27,7 @@ bool GameScene::init()
     CreatureRespawner *respawner = new CreatureRespawner(*this);
     addChild(respawner, 0);
    
-    hedgehog = Hero::create();
+    Hero* hedgehog = Hero::create();
     addChild(hedgehog, 1);
 
     return true;

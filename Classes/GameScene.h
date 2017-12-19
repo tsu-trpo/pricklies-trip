@@ -11,6 +11,4 @@ public:
     virtual bool init() override;
 
     CREATE_FUNC(GameScene);
-private:
-    Hero* hedgehog = nullptr;
 };
