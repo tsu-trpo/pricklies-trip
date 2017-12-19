@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "cocos2d.h"
 #include "HeroState.h"
 USING_NS_CC;
@@ -14,5 +15,5 @@ public:
     void onEnter() override;
     void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
 private:
-    HeroState* heroState = nullptr;
+    std::shared_ptr<HeroState> heroState;
 };

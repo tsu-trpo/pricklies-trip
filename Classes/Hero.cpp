@@ -19,11 +19,7 @@ Hero* Hero::create()
 
 void Hero::setState(HeroState* state)
 {
-    if (heroState != nullptr) {
-        delete heroState;
-    }
-
-    heroState = state;
+    heroState.reset(state);
     heroState->setAnimation();
 }
 
