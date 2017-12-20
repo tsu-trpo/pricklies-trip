@@ -7,6 +7,9 @@ USING_NS_CC;
 class Score: public Node {
 public:
     Score();
+    ~Score();
+    void addEventListener();
+    double getScorePoints();
     void update(float delta);
 
 private:
