@@ -1,6 +1,6 @@
 #include "HeroState.h"
 
-const float jumpDuration = 2.0;
+const float jumpDuration = 1.8;
 const float deathDuration = 2.0;
 const float runDelay = 0.2;
 const int   numberJumps = 1;
