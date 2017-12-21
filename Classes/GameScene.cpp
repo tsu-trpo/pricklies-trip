@@ -2,6 +2,7 @@
 #include "Score.h"
 #include "CreatureRespawner.h"
 #include "BackgroundController.h"
+#include "Hero.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,9 @@ bool GameScene::init()
 
     CreatureRespawner *respawner = new CreatureRespawner(*this);
     addChild(respawner, 0);
+   
+    Hero* hedgehog = Hero::create();
+    addChild(hedgehog, 1);
 
     return true;
 }

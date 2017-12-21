@@ -136,6 +136,8 @@ set(GAME_SRC
   Classes/Background.cpp
   Classes/CreatureRespawner.cpp
   Classes/BackgroundController.cpp
+  Classes/Hero.cpp
+  Classes/HeroState.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
@@ -150,6 +152,9 @@ set(GAME_HEADERS
   Classes/Background.h
   Classes/CreatureRespawner.h
   Classes/BackgroundController.h
+  Classes/Input.h
+  Classes/Hero.h
+  Classes/HeroState.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
