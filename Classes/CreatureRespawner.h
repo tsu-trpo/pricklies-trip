@@ -7,6 +7,7 @@ USING_NS_CC;
 class CreatureRespawner: public Node {
 public:
     explicit CreatureRespawner(Node &creatureParent);
+    static CreatureRespawner* create(Node &creatureParent);
     
     void update(float delta);
 

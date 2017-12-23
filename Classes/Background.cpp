@@ -8,6 +8,14 @@ Background::Background(int number)
     addChild(sprite, -1);
 }
 
+Background* Background::create(int number)
+{
+    Background* background = new Background(number);
+    background->autorelease();
+
+    return background;
+}
+
 Size Background::getSize()
 {
     Size backgroundSize = sprite->getContentSize();

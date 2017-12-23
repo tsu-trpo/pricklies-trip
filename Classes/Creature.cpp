@@ -11,6 +11,14 @@ Creature::Creature()
     addChild(sprite, 0);
 }
 
+Creature* Creature::create()
+{
+    Creature* creature = new Creature();
+    creature->autorelease();
+
+    return creature;
+}
+
 Size Creature::getSize()
 {
     Size creatureSize = sprite->getContentSize();
