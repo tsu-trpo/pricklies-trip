@@ -2,17 +2,21 @@
 #include "Input.h"
 USING_NS_CC;
 
+Hero::Hero()
+{
+    initWithFile("Creatures/Hedgehog/hedge_c_1.png");
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    setPosition(Vec2(visibleSize.width / 4.0, visibleSize.height / 2.6));
+    setScale(0.8);
+
+    RunState* running = new RunState(*this);
+    setState(running);
+}
+
 Hero* Hero::create()
 {
     Hero* hero = new Hero();
-    hero->initWithFile("Creatures/Hedgehog/hedge_c_1.png");
     hero->autorelease();
-
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    hero->setPosition(Vec2(visibleSize.width / 4.0, visibleSize.height / 2.6));
-    hero->setScale(0.8);
-    RunState* running = new RunState(*hero);
-    hero->setState(running);
 
     return hero;
 }

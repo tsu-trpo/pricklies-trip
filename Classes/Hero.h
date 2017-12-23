@@ -9,6 +9,7 @@ class HeroState;
 
 class Hero: public Sprite {
 public:
+    Hero();
     static Hero* create();
 
     void setState(HeroState* state);
