@@ -7,6 +7,7 @@ USING_NS_CC;
 class Creature: public Node {
 public:
     Creature();
+    static Creature* create();
     
     void update(float delta);
     Size getSize();

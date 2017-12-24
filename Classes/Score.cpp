@@ -21,6 +21,14 @@ Score::Score()
     addEventListener();
 }
 
+Score* Score::create()
+{
+    Score* score = new Score();
+    score->autorelease();
+
+    return score;
+}
+
 void Score::addEventListener()
 {
     getEventDispatcher()->addCustomEventListener(eatGoodiesEvent, [&](EventCustom* event){

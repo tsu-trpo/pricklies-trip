@@ -17,13 +17,13 @@ bool GameScene::init()
         return false;
     }
 
-    Score *score = new Score();
+    Score *score = Score::create();
     addChild(score, 0);
 
-    BackgroundController *backgroundController = new BackgroundController(*this);
+    BackgroundController *backgroundController = BackgroundController::create(*this);
     addChild(backgroundController, -1);
 
-    CreatureRespawner *respawner = new CreatureRespawner(*this);
+    CreatureRespawner *respawner = CreatureRespawner::create(*this);
     addChild(respawner, 0);
    
     Hero* hedgehog = Hero::create();

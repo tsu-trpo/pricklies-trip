@@ -7,13 +7,21 @@ CreatureRespawner::CreatureRespawner(Node &creatureParent): currentTime{0},
     scheduleUpdate();
 }
 
+CreatureRespawner* CreatureRespawner::create(Node &creatureParent)
+{
+    CreatureRespawner* respawner = new CreatureRespawner(creatureParent);
+    respawner->autorelease();
+
+    return respawner;
+}
+
 void CreatureRespawner::update(float delta)
 {
     currentTime += delta;
     
     if (currentTime > timeToMove) {
         currentTime = 0;
-        Creature *creature = new Creature;
+        Creature *creature = Creature::create();
         Size creatureSize = creature->getSize();
         creature->setAnchorPoint(Vec2(0.5, 0.5));
 
