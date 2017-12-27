@@ -45,9 +45,8 @@ bool GameScene::init()
 void GameScene::addEventListener()
 {
     getEventDispatcher()->addCustomEventListener(dieEvent, [&](EventCustom *event) {
-        const float transitionTime = 0.1;
         auto scene = HelloWorld::create();
-        Director::getInstance()->replaceScene(TransitionFade::create(transitionTime, scene));
+        Director::getInstance()->replaceScene(scene);
     });
 }
 
