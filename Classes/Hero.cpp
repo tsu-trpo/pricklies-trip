@@ -1,5 +1,8 @@
 #include "Hero.h"
 #include "Input.h"
+#include "HelloWorldScene.h"
+#include "Events.h"
+
 USING_NS_CC;
 
 Hero::Hero()
@@ -8,6 +11,23 @@ Hero::Hero()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     setPosition(Vec2(visibleSize.width / 4.0, visibleSize.height / 2.6));
     setScale(0.8);
+    
+    int pointsNumber = 6; // the number of polygon vertices
+    Point points[pointsNumber] = {Point(130, 60), 
+                       Point(160, -35), 
+                       Point(100, -70), 
+                       Point(30, -85), 
+                       Point(-100, -75), 
+                       Point(-150, -50)};
+    
+    setPhysicsBody(PhysicsBody::createPolygon(points, pointsNumber));
+    
+    this->_physicsBody->setDynamic(false);
+    this->_physicsBody->setContactTestBitmask(0xFFFFFFFF);
+
+    //this->contactListener = EventListenerPhysicsContact::create();
+    //this->contactListener->onContactBegin = CC_CALLBACK_1(Hero::onContact, this); 
+    //this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->contactListener, this);    
 
     RunState* running = new RunState(*this);
     setState(running);
@@ -17,7 +37,7 @@ Hero* Hero::create()
 {
     Hero* hero = new Hero();
     hero->autorelease();
-
+    
     return hero;
 }
 
@@ -42,3 +62,14 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
         heroState->handleInput(Input::JUMP_PRESS);
     }
 }
+
+
+//bool Hero::onContact(PhysicsContact &contact) 
+//{
+    //DieState *died = new DieState(*this); 
+    //setState(died);
+//    getEventDispatcher()->dispatchCustomEvent(dieEvent); 
+//    return true;
+//}
+
+

@@ -1,23 +1,32 @@
 #include "Creature.h"
 
 Creature::Creature()
-{
-    scheduleUpdate();
+{}
+
+//Creature::Creature(std::string image)
+//{   
+//    sprite = Sprite::create(image);
+//    
+ //   scheduleUpdate();
     
-    const int numberOfPictures = 5;
-    const int number = random(0, numberOfPictures);
-    std::string image = "Creatures/" + std::to_string(number) + ".png";
-    sprite = Sprite::create(image);
-    addChild(sprite, 0);
-}
+///    setPhysicsBody(PhysicsBody::createCircle(30));
+//    this->_physicsBody->setDynamic(false);
+//    this->_physicsBody->setContactTestBitmask(0xFFFFFFFF);
+//
+//    this->contactListener = EventListenerPhysicsContact::create();
+//    this->contactListener->onContactBegin = CC_CALLBACK_1(onContact, this);
+//    this->getEventDispatcher()->addEventListener(this->contactListener, this);
 
-Creature* Creature::create()
-{
-    Creature* creature = new Creature();
-    creature->autorelease();
+//    addChild(sprite, 0);
+//}
 
-    return creature;
-}
+//Creature* Creature::create()
+//{
+//    Creature* creature = new Creature();
+//    creature->autorelease();
+//
+//    return creature;
+//}
 
 Size Creature::getSize()
 {
@@ -42,3 +51,4 @@ void Creature::update(float delta)
 
     return;
 }
+

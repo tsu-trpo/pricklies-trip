@@ -138,6 +138,8 @@ set(GAME_SRC
   Classes/BackgroundController.cpp
   Classes/Hero.cpp
   Classes/HeroState.cpp
+  Classes/Enemy.cpp
+  Classes/Goodie.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
@@ -155,6 +157,8 @@ set(GAME_HEADERS
   Classes/Input.h
   Classes/Hero.h
   Classes/HeroState.h
+  Classes/Enemy.h
+  Classes/Goodie.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
