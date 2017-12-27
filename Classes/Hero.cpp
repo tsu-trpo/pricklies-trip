@@ -14,11 +14,11 @@ Hero::Hero()
     
     int pointsNumber = 6; // the number of polygon vertices
     Point points[pointsNumber] = {Point(130, 60), 
-                       Point(160, -35), 
-                       Point(100, -70), 
-                       Point(30, -85), 
-                       Point(-100, -75), 
-                       Point(-150, -50)};
+                                  Point(160, -35), 
+                                  Point(100, -70), 
+                                  Point(30, -85), 
+                                  Point(-100, -75), 
+                                  Point(-150, -50)};
     
     setPhysicsBody(PhysicsBody::createPolygon(points, pointsNumber));
     _physicsBody->setDynamic(false);
