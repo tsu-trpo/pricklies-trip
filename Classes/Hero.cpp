@@ -19,7 +19,7 @@ Hero::Hero()
                                   Point(30, -85), 
                                   Point(-100, -75), 
                                   Point(-150, -50)};
-    
+
     setPhysicsBody(PhysicsBody::createPolygon(points, pointsNumber));
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
@@ -37,7 +37,7 @@ Hero* Hero::create()
 {
     Hero* hero = new Hero();
     hero->autorelease();
-    
+
     return hero;
 }
 
@@ -55,7 +55,7 @@ void Hero::onEnter()
  
     _eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
 }
- 
+
 void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 {
     if (key == EventKeyboard::KeyCode::KEY_UP_ARROW) {    
@@ -63,19 +63,18 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
     }
 }
 
-
 bool Hero::onContact(PhysicsContact &contact) 
 {
     PhysicsShape *shape = contact.getShapeA();
     std::string name = "hero";
-    
+
     if (shape->getBody()->getName() == name) {
         shape = contact.getShapeB();
     }
-    
+
     auto creature = dynamic_cast<Creature *>(shape->getBody()->getNode());
     creature->onContact();
-    
+
     return true;
 }
 

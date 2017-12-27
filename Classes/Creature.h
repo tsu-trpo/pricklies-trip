@@ -14,3 +14,4 @@ protected:
     Sprite *sprite = nullptr;
     const int velocity = 300;
 };
+

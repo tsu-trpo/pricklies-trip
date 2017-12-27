@@ -11,7 +11,7 @@ USING_NS_CC;
 Scene* GameScene::createScene()
 {
     auto layer = GameScene::create();
-    
+
     auto scene = Scene::createWithPhysics();
     scene->getPhysicsWorld()->setDebugDrawMask(0xffff);
     scene->addChild(layer);
@@ -33,7 +33,7 @@ bool GameScene::init()
 
     CreatureRespawner *respawner = CreatureRespawner::create(*this);
     addChild(respawner, 0);
-   
+
     Hero* hedgehog = Hero::create();
     addChild(hedgehog, 1);
 
@@ -54,3 +54,4 @@ GameScene::~GameScene()
 {
     getEventDispatcher()->removeCustomEventListeners(dieEvent);
 }
+

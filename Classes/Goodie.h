@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Creature.h"
 
 class Goodie: public Creature {

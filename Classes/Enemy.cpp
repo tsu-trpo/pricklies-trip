@@ -10,7 +10,7 @@ Enemy::Enemy()
 
     std::string image = "Creatures/Enemies/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
-    
+
     int roughRadius = 30;
     setPhysicsBody(PhysicsBody::createCircle(roughRadius));
     _physicsBody->setDynamic(false);

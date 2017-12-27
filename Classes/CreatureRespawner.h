@@ -8,7 +8,7 @@ class CreatureRespawner: public Node {
 public:
     explicit CreatureRespawner(Node &creatureParent);
     static CreatureRespawner* create(Node &creatureParent);
-    
+
     void update(float delta);
 
 private:
@@ -16,3 +16,4 @@ private:
     float currentTime = 0;
     Node &spawnPoint;
 };
+

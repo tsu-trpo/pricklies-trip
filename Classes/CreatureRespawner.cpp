@@ -20,7 +20,7 @@ CreatureRespawner* CreatureRespawner::create(Node &creatureParent)
 void CreatureRespawner::update(float delta)
 {
     currentTime += delta;
-    
+
     if (currentTime > timeToMove) {
         currentTime = 0;
         int isGoodie = random(0, 1);
@@ -45,6 +45,7 @@ void CreatureRespawner::update(float delta)
         creature->setPosition(position);
         spawnPoint.addChild(creature);
     }
-    
+
     return;
 }
+
