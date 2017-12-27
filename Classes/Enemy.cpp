@@ -3,7 +3,7 @@
 
 Enemy * Enemy::create()
 {
-    Enemy * enemy = new Enemy();
+    Enemy *enemy = new Enemy();
     enemy->autorelease();
 
     return enemy;
@@ -19,7 +19,8 @@ Enemy::Enemy()
     std::string image = "Creatures/Enemies/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
     
-    setPhysicsBody(PhysicsBody::createCircle(30));
+    int roughRadius = 30;
+    setPhysicsBody(PhysicsBody::createCircle(roughRadius));
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
 

@@ -62,11 +62,11 @@ void DieState::setAnimation()
 
     hero.setTexture("Creatures/Hedgehog/died.png");
    
-    //float newY = -hero.getContentSize().height * 0.2;
-    //float jumpDeathHeight = hero.getContentSize().height * 0.8;
+    float newY = -hero.getContentSize().height * 0.2;
+    float jumpDeathHeight = hero.getContentSize().height * 0.8;
 
     auto rotate = RotateBy::create(deathDuration, 180);
-    //auto jump = JumpBy::create(2 * deathDuration, Vec2(0, newY), jumpDeathHeight, numberJumps);
-    //auto ease = EaseElasticOut::create(jump);
+    auto jump = JumpBy::create(2 * deathDuration, Vec2(0, newY), jumpDeathHeight, numberJumps);
+    auto ease = EaseElasticOut::create(jump);
     hero.runAction(Spawn::create(rotate, nullptr));
 }

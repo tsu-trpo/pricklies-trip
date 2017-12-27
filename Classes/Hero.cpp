@@ -68,9 +68,9 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 bool Hero::onContact(PhysicsContact &contact) 
 {
     PhysicsShape *shape = contact.getShapeA();
-    std::string heroTag = "hero";
+    std::string name = "hero";
     
-    if (shape->getBody()->getName() == heroTag) {
+    if (shape->getBody()->getName() == name) {
         shape = contact.getShapeB();
     }
     
