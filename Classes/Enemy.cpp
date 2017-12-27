@@ -1,14 +1,6 @@
 #include "Enemy.h"
 #include "Events.h"
 
-Enemy * Enemy::create()
-{
-    Enemy *enemy = new Enemy();
-    enemy->autorelease();
-
-    return enemy;
-}
-
 Enemy::Enemy()
 { 
     scheduleUpdate();
@@ -25,6 +17,14 @@ Enemy::Enemy()
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
 
     addChild(sprite, 0);
+}
+
+Enemy * Enemy::create()
+{
+    Enemy *enemy = new Enemy();
+    enemy->autorelease();
+
+    return enemy;
 }
 
 void Enemy::onContact()
