@@ -12,7 +12,7 @@ public:
     void update(float delta);
 
 private:
-    const int timeToMove = 2;
+    const float timeToMove = 2.5;
     float currentTime = 0;
     Node &spawnPoint;
 };
