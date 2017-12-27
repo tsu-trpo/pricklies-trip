@@ -15,8 +15,8 @@ public:
     void setState(HeroState* state);
     void onEnter() override;
     void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
-//    bool onContact(PhysicsContact &contact);
+    bool onContact(PhysicsContact &contact);
 private:
     std::shared_ptr<HeroState> heroState;
-//    EventListenerPhysicsContact *contactListener = nullptr;
+    EventListenerPhysicsContact *contactListener = nullptr;
 };

@@ -5,8 +5,6 @@ public:
     Goodie();
 
     static Goodie * create();
-
-    bool onContact(PhysicsContact &contact) override;
-private:
-    EventListenerPhysicsContact *contactListener = nullptr;
+    void onContact() override;
 };
+

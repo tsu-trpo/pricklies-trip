@@ -50,3 +50,8 @@ void GameScene::addEventListener()
         Director::getInstance()->replaceScene(TransitionFade::create(transitionTime, scene));
     });
 }
+
+GameScene::~GameScene()
+{
+    getEventDispatcher()->removeCustomEventListeners(dieEvent);
+}

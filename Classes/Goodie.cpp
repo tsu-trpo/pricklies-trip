@@ -12,12 +12,8 @@ Goodie::Goodie()
     sprite = Sprite::create(image);
  
     setPhysicsBody(PhysicsBody::createCircle(30));
-    this->_physicsBody->setDynamic(false);
-    this->_physicsBody->setContactTestBitmask(0xFFFFFFFF);
-
-    this->contactListener = EventListenerPhysicsContact::create();
-    this->contactListener->onContactBegin = CC_CALLBACK_1(Goodie::onContact, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->contactListener, this);
+    _physicsBody->setDynamic(false);
+    _physicsBody->setContactTestBitmask(0xFFFFFFFF);
 
     addChild(sprite, 0);
 }
@@ -30,8 +26,8 @@ Goodie *Goodie::create()
     return goodie;
 }
 
-bool Goodie::onContact(PhysicsContact &contact) 
+void Goodie::onContact()
 {
     getEventDispatcher()->dispatchCustomEvent(eatGoodiesEvent);
-    return true;
 }
+

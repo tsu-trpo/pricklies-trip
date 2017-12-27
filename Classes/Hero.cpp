@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "HelloWorldScene.h"
 #include "Events.h"
+#include "Creature.h"
 
 USING_NS_CC;
 
@@ -21,13 +22,13 @@ Hero::Hero()
                        Point(-150, -50)};
     
     setPhysicsBody(PhysicsBody::createPolygon(points, pointsNumber));
-    
-    this->_physicsBody->setDynamic(false);
-    this->_physicsBody->setContactTestBitmask(0xFFFFFFFF);
+    _physicsBody->setDynamic(false);
+    _physicsBody->setContactTestBitmask(0xFFFFFFFF);
+    _physicsBody->setName(std::string("hero"));
 
-    //this->contactListener = EventListenerPhysicsContact::create();
-    //this->contactListener->onContactBegin = CC_CALLBACK_1(Hero::onContact, this); 
-    //this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->contactListener, this);    
+    contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(Hero::onContact, this); 
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
 
     RunState* running = new RunState(*this);
     setState(running);
@@ -64,12 +65,18 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
 }
 
 
-//bool Hero::onContact(PhysicsContact &contact) 
-//{
-    //DieState *died = new DieState(*this); 
-    //setState(died);
-//    getEventDispatcher()->dispatchCustomEvent(dieEvent); 
-//    return true;
-//}
-
+bool Hero::onContact(PhysicsContact &contact) 
+{
+    PhysicsShape *shape = contact.getShapeA();
+    std::string heroTag = "hero";
+    
+    if (shape->getBody()->getName() == heroTag) {
+        shape = contact.getShapeB();
+    }
+    
+    auto creature = dynamic_cast<Creature *>(shape->getBody()->getNode());
+    creature->onContact();
+    
+    return true;
+}
 

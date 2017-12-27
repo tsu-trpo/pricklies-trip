@@ -20,18 +20,14 @@ Enemy::Enemy()
     sprite = Sprite::create(image);
     
     setPhysicsBody(PhysicsBody::createCircle(30));
-    this->_physicsBody->setDynamic(false);
-    this->_physicsBody->setContactTestBitmask(0xFFFFFFFF);
-
-    this->contactListener = EventListenerPhysicsContact::create();
-    this->contactListener->onContactBegin = CC_CALLBACK_1(Enemy::onContact, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->contactListener, this);
+    _physicsBody->setDynamic(false);
+    _physicsBody->setContactTestBitmask(0xFFFFFFFF);
 
     addChild(sprite, 0);
 }
 
-bool Enemy::onContact(PhysicsContact &contact)
+void Enemy::onContact()
 {
     getEventDispatcher()->dispatchCustomEvent(dieEvent);
-    return true;
 }
+
