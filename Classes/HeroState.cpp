@@ -68,5 +68,5 @@ void DieState::setAnimation()
     auto rotate = RotateBy::create(deathDuration, 180);
     auto jump = JumpBy::create(2 * deathDuration, Vec2(0, newY), jumpDeathHeight, numberJumps);
     auto ease = EaseElasticOut::create(jump);
-    hero.runAction(Spawn::create(rotate, nullptr));
+    hero.runAction(Spawn::create(ease, rotate, nullptr));
 }
