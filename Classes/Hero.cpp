@@ -1,6 +1,5 @@
 #include "Hero.h"
 #include "Input.h"
-#include "HelloWorldScene.h"
 #include "Events.h"
 #include "Creature.h"
 
