@@ -7,6 +7,6 @@ public:
     Enemy();
 
     static Enemy * create();
-    void  onContact() override;
+    void onContact() override;
 };
 
