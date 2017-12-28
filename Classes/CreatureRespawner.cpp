@@ -23,14 +23,15 @@ void CreatureRespawner::update(float delta)
 
     if (currentTime > timeToMove) {
         currentTime = 0;
-        int isGoodie = random(0, 1);
-        Creature *creature;
 
-        if (isGoodie) {
-            creature = Goodie::create();
-        } else {
-            creature = Enemy::create();
-        }
+        Creature *creature = []()->Creature *{
+            int isGoodie = random(0, 1);
+            if (isGoodie) {
+                return Goodie::create();
+            } else {
+                return Enemy::create();
+            }
+        }();
 
         Size creatureSize = creature->getSize();
         creature->setAnchorPoint(Vec2(0.5, 0.5));
