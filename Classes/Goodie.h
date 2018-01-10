@@ -8,6 +8,5 @@ public:
 
     static Goodie * create();
     void onContact() override;
-    float getRadius();
 };
 

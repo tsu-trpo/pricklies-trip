@@ -27,16 +27,6 @@ Goodie * Goodie::create()
     return goodie;
 }
 
-float Goodie::getRadius()
-{
-    float width = sprite->getContentSize().width;
-    float height = sprite->getContentSize().height;
-
-    float radius = width > height ? height : width;
-
-    return radius / 2;
-}
-
 void Goodie::onContact()
 {
     getEventDispatcher()->dispatchCustomEvent(eatGoodiesEvent);

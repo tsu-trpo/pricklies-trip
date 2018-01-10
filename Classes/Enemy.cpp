@@ -20,16 +20,6 @@ Enemy::Enemy()
     addChild(sprite, 0);
 }
 
-float Enemy::getRadius()
-{
-    float width = sprite->getContentSize().width;
-    float height = sprite->getContentSize().height;
-
-    float radius = width > height ? height : width;
-
-    return radius / 2;
-}
-
 Enemy * Enemy::create()
 {
     Enemy *enemy = new Enemy();
