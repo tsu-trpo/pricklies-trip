@@ -11,7 +11,7 @@ Goodie::Goodie()
     std::string image = "Creatures/Goodies/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
 
-    int roughRadius = 30;
+    int roughRadius = getRadius();
     setPhysicsBody(PhysicsBody::createCircle(roughRadius));
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
@@ -25,6 +25,16 @@ Goodie * Goodie::create()
     goodie->autorelease();
 
     return goodie;
+}
+
+float Goodie::getRadius()
+{
+    float width = sprite->getContentSize().width;
+    float height = sprite->getContentSize().height;
+
+    float radius = width > height ? height : width;
+
+    return radius / 2;
 }
 
 void Goodie::onContact()

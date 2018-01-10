@@ -8,5 +8,6 @@ public:
 
     static Enemy * create();
     void onContact() override;
+    float getRadius();
 };
 
