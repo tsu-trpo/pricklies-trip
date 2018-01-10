@@ -24,3 +24,14 @@ void Creature::update(float delta)
     return;
 }
 
+float Creature::getRadius()
+{
+    float size = getSize();
+    float width = size.width;
+    float height = size.height;
+
+    float radius = width > height ? height : width;
+
+    return radius / 2;
+}
+

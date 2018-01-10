@@ -9,6 +9,7 @@ public:
     void update(float delta);
     Size getSize();
     virtual void onContact() = 0;
+    float getRadius();
 
 protected:
     Sprite *sprite = nullptr;
