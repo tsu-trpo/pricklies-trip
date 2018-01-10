@@ -26,7 +26,7 @@ void Creature::update(float delta)
 
 float Creature::getRadius()
 {
-    float size = getSize();
+    Size size = getSize();
     float width = size.width;
     float height = size.height;
 
