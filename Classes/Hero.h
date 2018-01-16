@@ -18,6 +18,7 @@ public:
     void onKeyPressed(EventKeyboard::KeyCode key, Event* event);
     bool onContact(PhysicsContact &contact);
 
+    PhysicsBody * getBody();
 private:
     std::shared_ptr<HeroState> heroState;
     EventListenerPhysicsContact *contactListener = nullptr;

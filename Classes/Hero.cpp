@@ -12,15 +12,7 @@ Hero::Hero()
     setPosition(Vec2(visibleSize.width / 4.0, visibleSize.height / 2.6));
     setScale(0.8);
     
-    int pointsNumber = 6; // the number of polygon vertices
-    Point points[pointsNumber] = {Point(130, 60), 
-                                  Point(160, -35), 
-                                  Point(100, -70), 
-                                  Point(30, -85), 
-                                  Point(-100, -75), 
-                                  Point(-150, -50)};
-
-    setPhysicsBody(PhysicsBody::createPolygon(points, pointsNumber));
+    setPhysicsBody(getBody());
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
     _physicsBody->setName(std::string("hero"));
@@ -78,3 +70,26 @@ bool Hero::onContact(PhysicsContact &contact)
     return true;
 }
 
+PhysicsBody * Hero::getBody()
+{
+    Size size = getContentSize(); // fix after Hero class inheritance fix
+    float heightHalf = size.height * 0.5;
+    float widthHalf = size.width * 0.5;
+    int pointsNumber = 8;
+
+    Point absPoints[pointsNumber / 2] = { Point(0, heightHalf * 0.8),
+                                          Point(widthHalf * 0.6, - heightHalf * 0.6),
+                                          Point(widthHalf * 0.8, 0),
+                                          Point(widthHalf * 0.6, heightHalf * 0.6) };
+
+    Point points[pointsNumber] = { absPoints[0],
+                                   absPoints[1],
+                                   absPoints[2],
+                                   absPoints[3],
+                                   -absPoints[0],
+                                   -absPoints[1],
+                                   -absPoints[3],
+                                   -absPoints[2] };
+
+    return PhysicsBody::createPolygon(points, pointsNumber);
+}
