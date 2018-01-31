@@ -1,5 +1,6 @@
 #include "Goodie.h"
 #include "Events.h"
+#include "Tag.h"
 
 Goodie::Goodie()
 {
@@ -15,6 +16,7 @@ Goodie::Goodie()
     setPhysicsBody(PhysicsBody::createCircle(roughRadius));
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
+    _physicsBody->setName(creatureTag);
 
     addChild(sprite, 0);
 }

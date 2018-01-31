@@ -159,6 +159,7 @@ set(GAME_HEADERS
   Classes/HeroState.h
   Classes/Enemy.h
   Classes/Goodie.h
+  Classes/Tag.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 

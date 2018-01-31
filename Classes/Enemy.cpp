@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include "Events.h"
+#include "Tag.h"
 
 Enemy::Enemy()
 { 
@@ -16,6 +17,7 @@ Enemy::Enemy()
     setPhysicsBody(PhysicsBody::createCircle(roughRadius));
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
+    _physicsBody->setName(creatureTag);
 
     addChild(sprite, 0);
 }
