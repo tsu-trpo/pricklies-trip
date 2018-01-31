@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "Events.h"
 #include "Creature.h"
+#include "Tag.h"
 
 USING_NS_CC;
 
@@ -15,7 +16,7 @@ Hero::Hero()
     setPhysicsBody(getBody());
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
-    _physicsBody->setName(std::string("hero"));
+    _physicsBody->setName(heroTag);
 
     contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(Hero::onContact, this); 
@@ -55,17 +56,23 @@ void Hero::onKeyPressed(EventKeyboard::KeyCode key, Event* event)
     }
 }
 
-bool Hero::onContact(PhysicsContact &contact) 
+bool Hero::onContact(PhysicsContact &contact)
 {
-    PhysicsShape *shape = contact.getShapeA();
-    std::string name = "hero";
+    auto shapeABody = contact.getShapeA()->getBody();
+    auto shapeBBody = contact.getShapeB()->getBody();
+    Creature *creature;
 
-    if (shape->getBody()->getName() == name) {
-        shape = contact.getShapeB();
+    if (shapeABody->getName() == heroTag) {
+        if (shapeBBody->getName() == creatureTag) {
+            creature = dynamic_cast<Creature *>(shapeBBody->getNode());
+            creature->onContact();
+        }
+    } else if (shapeBBody->getName() == heroTag) {
+        if (shapeABody->getName() == creatureTag) {
+            creature = dynamic_cast<Creature *>(shapeABody->getNode());
+            creature->onContact();
+        }
     }
-
-    auto creature = dynamic_cast<Creature *>(shape->getBody()->getNode());
-    creature->onContact();
 
     return true;
 }
