@@ -12,9 +12,7 @@ Enemy::Enemy()
     std::string image = "Creatures/Enemies/" + std::to_string(number) + ".png";
     sprite = Sprite::create(image);
 
-    int roughRadius = getRadius();
-
-    setPhysicsBody(PhysicsBody::createCircle(roughRadius));
+    setPhysicsBody(PhysicsBody::createCircle(getRadius()));
     _physicsBody->setDynamic(false);
     _physicsBody->setContactTestBitmask(0xFFFFFFFF);
     _physicsBody->setName(creatureTag);
