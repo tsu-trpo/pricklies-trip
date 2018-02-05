@@ -79,7 +79,8 @@ bool Hero::onContact(PhysicsContact &contact)
 
 PhysicsBody * Hero::getBody()
 {
-    Size size = getContentSize(); // fix after Hero class inheritance fix
+    //TODO: getting size (after Hero class inheritance fix)
+    Size size = getContentSize();
     float heightHalf = size.height * 0.5;
     float widthHalf = size.width * 0.5;
     int pointsNumber = 8;

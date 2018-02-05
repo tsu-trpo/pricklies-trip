@@ -7,7 +7,7 @@
 USING_NS_CC;
 
 class HeroState;
-
+//TODO: change base class to Node
 class Hero: public Sprite {
 public:
     Hero();
