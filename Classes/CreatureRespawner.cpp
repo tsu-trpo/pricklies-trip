@@ -1,5 +1,7 @@
 #include "CreatureRespawner.h"
 #include "Creature.h"
+#include "Goodie.h"
+#include "Enemy.h"
 
 CreatureRespawner::CreatureRespawner(Node &creatureParent): currentTime{0}, 
                                                             spawnPoint{creatureParent} 
@@ -18,23 +20,33 @@ CreatureRespawner* CreatureRespawner::create(Node &creatureParent)
 void CreatureRespawner::update(float delta)
 {
     currentTime += delta;
-    
+
     if (currentTime > timeToMove) {
         currentTime = 0;
-        Creature *creature = Creature::create();
+
+        Creature *creature = []()->Creature *{
+            int isGoodie = random(0, 1);
+            if (isGoodie) {
+                return Goodie::create();
+            } else {
+                return Enemy::create();
+            }
+        }();
+
         Size creatureSize = creature->getSize();
         creature->setAnchorPoint(Vec2(0.5, 0.5));
 
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         Size visibleSize = Director::getInstance()->getVisibleSize();
 
-        const float relativeHeight = 0.3;
+        const float relativeHeight = 0.33;
         Point position(origin.x + visibleSize.width + creatureSize.width,
                        origin.y + visibleSize.height * relativeHeight);
 
         creature->setPosition(position);
         spawnPoint.addChild(creature);
     }
-    
+
     return;
 }
+

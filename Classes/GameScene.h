@@ -9,6 +9,9 @@ public:
     static cocos2d::Scene* createScene();
 
     virtual bool init() override;
-    
+    void addEventListener();
+    ~GameScene();
+
     CREATE_FUNC(GameScene);
 };
+

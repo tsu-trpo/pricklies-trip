@@ -6,13 +6,13 @@ USING_NS_CC;
 
 class Creature: public Node {
 public:
-    Creature();
-    static Creature* create();
-    
     void update(float delta);
     Size getSize();
+    virtual void onContact() = 0;
+    float getRadius();
 
-private:
-    const int velocity = 300;
+protected:
     Sprite *sprite = nullptr;
+    const int velocity = 300;
 };
+
