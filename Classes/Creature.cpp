@@ -27,11 +27,6 @@ void Creature::update(float delta)
 float Creature::getRadius()
 {
     Size size = getSize();
-    float width = size.width;
-    float height = size.height;
-
-    float radius = width > height ? height : width;
-
-    return radius / 2;
+    return std::min(size.width, size.height) / 2;
 }
 
