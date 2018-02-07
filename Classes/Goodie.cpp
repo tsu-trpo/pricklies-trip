@@ -1,16 +1,13 @@
 #include "Goodie.h"
 #include "Events.h"
 #include "Tag.h"
+#include "Image.h"
 
 Goodie::Goodie()
 {
     scheduleUpdate();
 
-    const int numberOfpictures = 4;
-    const int number = random(0, numberOfpictures - 1);
-
-    std::string image = "Creatures/Goodies/" + std::to_string(number) + ".png";
-    sprite = Sprite::create(image);
+    sprite = Sprite::create(creature::getGoodie());
 
     setPhysicsBody(PhysicsBody::createCircle(getRadius()));
     _physicsBody->setDynamic(false);
