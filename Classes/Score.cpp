@@ -10,7 +10,7 @@ Score::Score()
 
     const int fontSize = 40;
     std::string scoreText = "Score: " + std::to_string((size_t)score);
-    scoreLabel = Label::createWithTTF(scoreText , font::stripe, fontSize);
+    scoreLabel = Label::createWithTTF(scoreText , image::font::stripe, fontSize);
     scoreLabel->setColor(Color3B::BLACK);
 
     Size scoreLabelSize = scoreLabel->getContentSize();

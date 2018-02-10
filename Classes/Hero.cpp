@@ -9,7 +9,7 @@ USING_NS_CC;
 
 Hero::Hero()
 {
-    initWithFile(hero::pic1);
+    initWithFile(image::hero::pic1);
     auto visibleSize = Director::getInstance()->getVisibleSize();
     setPosition(Vec2(visibleSize.width / 4.0, visibleSize.height / 2.6));
     setScale(0.8);

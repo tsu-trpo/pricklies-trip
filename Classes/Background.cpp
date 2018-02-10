@@ -5,7 +5,7 @@ Background::Background(int number)
 {
     scheduleUpdate();
     
-    sprite = Sprite::create(background::get(number));
+    sprite = Sprite::create(image::background::get(number));
     addChild(sprite, -1);
 }
 

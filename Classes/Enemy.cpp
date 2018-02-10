@@ -7,7 +7,7 @@ Enemy::Enemy()
 { 
     scheduleUpdate();
 
-    sprite = Sprite::create(creature::getEnemy());
+    sprite = Sprite::create(image::creature::getEnemy());
 
     setPhysicsBody(PhysicsBody::createCircle(getRadius()));
     _physicsBody->setDynamic(false);

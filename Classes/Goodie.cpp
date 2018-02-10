@@ -7,7 +7,7 @@ Goodie::Goodie()
 {
     scheduleUpdate();
 
-    sprite = Sprite::create(creature::getGoodie());
+    sprite = Sprite::create(image::creature::getGoodie());
 
     setPhysicsBody(PhysicsBody::createCircle(getRadius()));
     _physicsBody->setDynamic(false);
