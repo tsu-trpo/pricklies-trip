@@ -2,6 +2,7 @@
 #include "Score.h"
 #include "ScreenConsts.h"
 #include "Events.h"
+#include "Image.h"
 
 Score::Score()
 {
@@ -9,7 +10,7 @@ Score::Score()
 
     const int fontSize = 40;
     std::string scoreText = "Score: " + std::to_string((size_t)score);
-    scoreLabel = Label::createWithTTF(scoreText , "Fonts/Stripe.ttf", fontSize);
+    scoreLabel = Label::createWithTTF(scoreText , image::font::stripe, fontSize);
     scoreLabel->setColor(Color3B::BLACK);
 
     Size scoreLabelSize = scoreLabel->getContentSize();

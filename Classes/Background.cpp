@@ -1,10 +1,11 @@
 #include "Background.h"
+#include "Image.h"
 
 Background::Background(int number)
 {
     scheduleUpdate();
     
-    sprite = Sprite::create("Background/background-0" + std::to_string(number) + ".png");
+    sprite = Sprite::create(image::background::get(number));
     addChild(sprite, -1);
 }
 

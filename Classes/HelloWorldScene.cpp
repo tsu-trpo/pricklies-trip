@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "GameScene.h"
+#include "Image.h"
 
 USING_NS_CC;
 
@@ -19,15 +20,15 @@ bool HelloWorld::init()
 
     Vector<MenuItem*> MenuItems;
     
-    auto startItem = MenuItemImage::create("Button/playButton.png",
-                                           "Button/playButton.png",
+    auto startItem = MenuItemImage::create(image::button::play,
+                                           image::button::play,
                                            CC_CALLBACK_1(HelloWorld::goToGameScene, this));
     startItem->setPosition(Vec2(origin.x + visibleSize.width / 2,
                                 origin.y + startItem->getContentSize().height / 2 + 100));
     MenuItems.pushBack(startItem);
     
-    auto closeItem = MenuItemImage::create("Button/exitButton.png",
-                                           "Button/exitButton.png",
+    auto closeItem = MenuItemImage::create(image::button::exit,
+                                           image::button::exit,
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2 - 10,
                                 origin.y + closeItem->getContentSize().height / 2 + 10));
@@ -37,7 +38,7 @@ bool HelloWorld::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
 
-    auto background = Sprite::create("Background/background.png");
+    auto background = Sprite::create(image::background::menu);
     background->setPosition(Vec2(visibleSize.width / 2 + origin.x,
                                  visibleSize.height / 2 + origin.y));
     this->addChild(background, 0);

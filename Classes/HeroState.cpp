@@ -1,4 +1,5 @@
 #include "HeroState.h"
+#include "Image.h"
 
 const float jumpDuration = 1.8;
 const float deathDuration = 2.0;
@@ -25,8 +26,8 @@ void RunState::setAnimation()
     Vector<SpriteFrame*> frames;
     frames.reserve(2);
     auto position = hero.getTextureRect();
-    frames.pushBack(SpriteFrame::create("Creatures/Hedgehog/hedge_c.png", position));        
-    frames.pushBack(SpriteFrame::create("Creatures/Hedgehog/hedge_c_1.png", position));
+    frames.pushBack(SpriteFrame::create(image::hero::pic0, position));
+    frames.pushBack(SpriteFrame::create(image::hero::pic1, position));
 
     Animation* movingPaws = Animation::createWithSpriteFrames(frames, runDelay);
     Animate* movePaws = Animate::create(movingPaws);
@@ -60,7 +61,7 @@ void DieState::setAnimation()
 {
     hero.stopAllActions();
 
-    hero.setTexture("Creatures/Hedgehog/died.png");
+    hero.setTexture(image::hero::die);
    
     float newY = -hero.getContentSize().height * 0.2;
     float jumpDeathHeight = hero.getContentSize().height * 0.8;
