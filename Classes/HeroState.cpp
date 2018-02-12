@@ -26,8 +26,8 @@ void RunState::setAnimation()
     Vector<SpriteFrame*> frames;
     frames.reserve(2);
     auto position = hero.getTextureRect();
-    frames.pushBack(SpriteFrame::create(image::hero::pic0, position));
-    frames.pushBack(SpriteFrame::create(image::hero::pic1, position));
+    frames.pushBack(SpriteFrame::create(image::hero::walk0, position));
+    frames.pushBack(SpriteFrame::create(image::hero::walk1, position));
 
     Animation* movingPaws = Animation::createWithSpriteFrames(frames, runDelay);
     Animate* movePaws = Animate::create(movingPaws);

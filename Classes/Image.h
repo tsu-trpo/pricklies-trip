@@ -35,8 +35,8 @@ inline std::string getEnemy()
 namespace hero {
 
 const std::string die = "Hero/die.png";
-const std::string pic0 = "Hero/0.png";
-const std::string pic1 = "Hero/1.png";
+const std::string walk0 = "Hero/walk0.png";
+const std::string walk1 = "Hero/walk1.png";
 
 }
 
@@ -46,7 +46,7 @@ const std::string menu = "Background/menu.png";
 
 inline std::string get(int number)
 {
-    return "Background/0" + std::to_string(number) + ".png";
+    return "Background/main0" + std::to_string(number) + ".png";
 }
 
 } // background
