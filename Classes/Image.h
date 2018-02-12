@@ -7,8 +7,8 @@ namespace image {
 
 namespace button {
 
-const std::string exit = "Button/exitButton.png";
-const std::string play = "Button/playButton.png";
+const std::string exit = "Button/exit.png";
+const std::string play = "Button/play.png";
 
 }
 
@@ -19,7 +19,7 @@ inline std::string getGoodie()
     const int numberOfGoodies = 4;
     const int goodieNumber = cocos2d::random(0, numberOfGoodies - 1);
 
-    return "Creatures/Goodies/" + std::to_string(goodieNumber) + ".png";
+    return "Creature/Goodie/" + std::to_string(goodieNumber) + ".png";
 }
 
 inline std::string getEnemy()
@@ -27,33 +27,33 @@ inline std::string getEnemy()
     const int numberOfEnemies = 2;
     const int enemyNumber = cocos2d::random(0, numberOfEnemies - 1);
 
-    return "Creatures/Enemies/" + std::to_string(enemyNumber) + ".png";
+    return "Creature/Enemy/" + std::to_string(enemyNumber) + ".png";
 }
 
 } // creature
 
 namespace hero {
 
-const std::string die = "Creatures/Hedgehog/died.png";
-const std::string pic0 = "Creatures/Hedgehog/hedge_c.png";
-const std::string pic1 = "Creatures/Hedgehog/hedge_c_1.png";
+const std::string die = "Hero/die.png";
+const std::string pic0 = "Hero/0.png";
+const std::string pic1 = "Hero/1.png";
 
 }
 
 namespace background {
 
-const std::string menu = "Background/background.png";
+const std::string menu = "Background/menu.png";
 
 inline std::string get(int number)
 {
-    return "Background/background-0" + std::to_string(number) + ".png";
+    return "Background/0" + std::to_string(number) + ".png";
 }
 
 } // background
 
 namespace font {
 
-const std::string stripe = "Fonts/Stripe.ttf";
+const std::string stripe = "Font/Stripe.ttf";
 
 }
 
